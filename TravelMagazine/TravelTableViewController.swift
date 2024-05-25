@@ -25,11 +25,14 @@ class TravelTableViewController: UITableViewController {
         
         let data = travelMegazine[indexPath.row]
         
-        cell.travelImageView.image = UIImage(named: data.photo_image)
-        cell.titleLabel.text = data.title
-        cell.subtitleLabel.text = data.subtitle
-        cell.dateLabel.text = data.date
+        cell.travelImageView.setImageFromURL(imageStr: data.photo_image)
+        cell.travelImageView.layer.cornerRadius = 10
         
+        cell.titleLabel.text = data.title
+        
+        cell.subtitleLabel.text = data.subtitle
+        
+        cell.dateLabel.text = data.date
         return cell
     }
     
