@@ -32,7 +32,8 @@ class TravelTableViewController: UITableViewController {
         
         cell.subtitleLabel.text = data.subtitle
         
-        cell.dateLabel.text = data.date
+        cell.dateLabel.text = data.date.convertDateFormat()
+        
         return cell
     }
     
