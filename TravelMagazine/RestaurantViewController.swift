@@ -1,5 +1,5 @@
 //
-//  RestaurantTableViewController.swift
+//  RestaurantViewController.swift
 //  TravelMagazine
 //
 //  Created by 홍정민 on 5/25/24.
