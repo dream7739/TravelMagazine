@@ -65,6 +65,10 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         filterCategory(category)
     }
     
+    @objc func likeButtonClicked(sender: UIButton){
+        filteredList[sender.tag].like.toggle()
+        restaurantTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
     
     private func designButton(_ sender: UIButton, _ idx: Int){
         sender.layer.cornerRadius = 15
@@ -85,7 +89,6 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func filterCategory(_ category: String){
-        
         if category == "기타"{
             filteredList = restaurantList.filter{
                 !categoryTitleList.contains($0.category)
@@ -98,7 +101,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         restaurantTableView.reloadData()
     }
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.count
     }
@@ -111,6 +114,11 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.nameLabel.text = data.name
         cell.addressLabel.text = data.address
         cell.phoneNumberLabel.text = data.phoneNumber
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        
+        let image = data.like ? "heart.fill" : "heart"
+        cell.likeButton.setImage(UIImage(systemName: image), for: .normal)
         
         return cell
     }
