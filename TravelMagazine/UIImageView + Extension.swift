@@ -9,8 +9,30 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
+    
+    //placeholder : 로딩중일때 혹은 이미지 가져오지 못할때
+    //fade: 0.1초 서서히 뜨게 함. 로딩시간이 더 빠르면 작동안함
+    //indicator : 로딩중임을 알림
     func setImageFromURL(imageStr: String){
-        let imageURL = URL(string: imageStr)
-        self.kf.setImage(with: imageURL)
-   }
+        guard let imageURL = URL(string: imageStr) else { return }
+        self.kf.indicatorType = .activity
+        self.kf.setImage(
+            with: imageURL,
+            placeholder: UIImage(named: "placeholder_rupy"),
+            options: [
+                .transition(.fade(0.1))
+            ]){ result in
+                switch result{
+                case .success(let value): 
+                    break
+                case .failure(let error):
+                    print("error: \(error.errorCode)")
+                }
+        }
+    }
+    
+    func cancelDownLoadImage(){
+        self.kf.cancelDownloadTask()
+    }
+    
 }
