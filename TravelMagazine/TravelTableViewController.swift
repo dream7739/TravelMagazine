@@ -36,7 +36,6 @@ class TravelTableViewController: UITableViewController {
         let data = travelMegazine[indexPath.row]
         
         cell.travelImageView.setImageFromURL(imageStr: data.photo_image)
-        cell.travelImageView.layer.cornerRadius = 10
         
         cell.titleLabel.text = data.title
         

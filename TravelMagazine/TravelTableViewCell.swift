@@ -13,4 +13,8 @@ class TravelTableViewCell: UITableViewCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        travelImageView.layer.cornerRadius = 10
+    }
 }
