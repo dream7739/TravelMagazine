@@ -28,7 +28,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
-        restaurantTableView.rowHeight = 150
+        restaurantTableView.rowHeight = 130
         restaurantTableView.keyboardDismissMode = .onDrag
         
         searchTextField.clearButtonMode = .whileEditing
