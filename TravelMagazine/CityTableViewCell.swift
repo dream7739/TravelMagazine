@@ -34,8 +34,13 @@ class CityTableViewCell: UITableViewCell {
         
         if let imageURL =  data.travel_image,
            let url = URL(string: imageURL){
-            cityImageView.kf.setImage(with: url)
+            cityImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder_rupy"))
         }
+        
+        let like = data.like ?? false
+        let image = like ? UIImage(systemName: "heart.fill"): UIImage(systemName: "heart")
+        likeButton.setImage(image, for: .normal)
+
     }
     
     func configureLayout(){
