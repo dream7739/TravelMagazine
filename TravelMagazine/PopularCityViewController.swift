@@ -32,6 +32,19 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    //오른쪽에 swipe 액션 생성
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let share = UIContextualAction(style: .normal, title: "share") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            print("share 클릭")
+            success(true)
+        }
+        
+        share.image = UIImage(systemName: "square.and.arrow.up")
+        share.backgroundColor = .systemTeal
+        
+        return UISwipeActionsConfiguration(actions: [share])
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cityList[indexPath.row].ad ? 70 : 150
     }
