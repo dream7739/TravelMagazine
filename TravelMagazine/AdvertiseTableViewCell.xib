@@ -22,8 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0H-Ou-QLm">
-                                <rect key="frame" x="286" y="8" width="26" height="21"/>
+                                <rect key="frame" x="292" y="2" width="26" height="20"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="HdV-6Y-7TU"/>
                                     <constraint firstAttribute="width" constant="26" id="c6J-ml-M32"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -39,8 +40,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="M0H-Ou-QLm" secondAttribute="trailing" constant="8" id="4tp-j3-BKH"/>
-                            <constraint firstItem="M0H-Ou-QLm" firstAttribute="top" secondItem="y9M-e2-brS" secondAttribute="top" constant="8" id="D3e-Rg-LI1"/>
+                            <constraint firstAttribute="trailing" secondItem="M0H-Ou-QLm" secondAttribute="trailing" constant="2" id="4tp-j3-BKH"/>
+                            <constraint firstItem="M0H-Ou-QLm" firstAttribute="top" secondItem="y9M-e2-brS" secondAttribute="top" constant="2" id="D3e-Rg-LI1"/>
                             <constraint firstItem="SOO-eI-cCb" firstAttribute="centerY" secondItem="y9M-e2-brS" secondAttribute="centerY" id="a0Y-Qu-UJc"/>
                             <constraint firstItem="SOO-eI-cCb" firstAttribute="centerX" secondItem="y9M-e2-brS" secondAttribute="centerX" id="kU4-Mc-lS0"/>
                         </constraints>
@@ -56,6 +57,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="adBackgroundView" destination="y9M-e2-brS" id="zbJ-Jw-TTB"/>
+                <outlet property="addIconLabel" destination="M0H-Ou-QLm" id="JmC-96-4xG"/>
                 <outlet property="titleLabel" destination="SOO-eI-cCb" id="DZP-qL-T4H"/>
             </connections>
             <point key="canvasLocation" x="117.55725190839694" y="19.718309859154932"/>

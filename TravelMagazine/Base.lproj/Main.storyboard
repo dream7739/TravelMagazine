@@ -343,14 +343,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qiv-BI-hPZ">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="20" y="103" width="353" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G2G-zG-haA">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="353" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2G-zG-haA" id="srR-Tf-lR8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -360,10 +360,10 @@
                         <viewLayoutGuide key="safeArea" id="Rr6-8q-GUk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Qiv-BI-hPZ" firstAttribute="leading" secondItem="Rr6-8q-GUk" secondAttribute="leading" id="2Qw-r4-WzY"/>
+                            <constraint firstItem="Qiv-BI-hPZ" firstAttribute="leading" secondItem="Rr6-8q-GUk" secondAttribute="leading" constant="20" id="2Qw-r4-WzY"/>
                             <constraint firstItem="Rr6-8q-GUk" firstAttribute="bottom" secondItem="Qiv-BI-hPZ" secondAttribute="bottom" id="h5A-vx-Blb"/>
                             <constraint firstItem="Qiv-BI-hPZ" firstAttribute="top" secondItem="Rr6-8q-GUk" secondAttribute="top" id="jSr-ae-Rje"/>
-                            <constraint firstItem="Rr6-8q-GUk" firstAttribute="trailing" secondItem="Qiv-BI-hPZ" secondAttribute="trailing" id="oUV-TU-fKx"/>
+                            <constraint firstItem="Rr6-8q-GUk" firstAttribute="trailing" secondItem="Qiv-BI-hPZ" secondAttribute="trailing" constant="20" id="oUV-TU-fKx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eUr-0F-TOo"/>
