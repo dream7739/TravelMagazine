@@ -110,7 +110,7 @@ struct TravelInfo {
                save: 37077,
                like: false,
                ad: false),
-        Travel(title: "도쿄 여행 예약은?\nXcode로 직접 예약앱을 만들면 되겠네요!",
+        Travel(title: "도쿄 여행 예약은?\nXcode로 직접 예약앱을 만들면 되겠네요!ssnsnsnsnnsnsnnsnsnalskdflsakflaskdflaskdflsakdflakfdjlaskfdjlaskdfjlaksdjfklakdfjlaksfjlaksdjflakjdflakjldfkjadlfkjla",
                description: nil,
                travel_image: nil,
                grade: nil,

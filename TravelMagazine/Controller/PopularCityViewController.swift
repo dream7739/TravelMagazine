@@ -31,6 +31,8 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         cityTableView.register(advertiseNib, forCellReuseIdentifier: AdvertiseTableViewCell.identifier)
         
         cityTableView.showsVerticalScrollIndicator = false
+        
+        cityTableView.rowHeight = UITableView.automaticDimension
     }
     
     //오른쪽에 swipe 액션 생성
@@ -46,9 +48,9 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         return UISwipeActionsConfiguration(actions: [share])
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cityList[indexPath.row].ad ? 70 : 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return cityList[indexPath.row].ad ? 70 : 150
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityList.count

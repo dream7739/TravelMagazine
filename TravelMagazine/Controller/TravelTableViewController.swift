@@ -14,6 +14,10 @@ class TravelTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView("SeSAC Travel")
+        configureTableView()
+    }
+    
+    func configureTableView(){
         tableView.rowHeight = 450
         tableView.separatorStyle = .none
     }
@@ -25,14 +29,12 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(#function)
         return travelMegazine.count
     }
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelTableViewCell", for: indexPath) as! TravelTableViewCell
-        
         
         let data = travelMegazine[indexPath.row]
         

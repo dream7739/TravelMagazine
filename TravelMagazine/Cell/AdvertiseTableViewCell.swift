@@ -27,6 +27,8 @@ class AdvertiseTableViewCell: UITableViewCell {
     
     func configureLayout(){
         titleLabel.font = .systemFont(ofSize: 14, weight: .heavy)
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
         
         adBackgroundView.layer.cornerRadius = 12
         
