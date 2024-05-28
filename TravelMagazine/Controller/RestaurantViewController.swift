@@ -10,9 +10,6 @@ import UIKit
 
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet var searchTextField: UITextField!
-    @IBOutlet var searchButton: UIButton!
-    
     @IBOutlet var koreanButton: UIButton!
     @IBOutlet var chineseButton: UIButton!
     @IBOutlet var westernButton: UIButton!
@@ -30,7 +27,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         configureTableView()
         
-        searchTextField.clearButtonMode = .whileEditing
+        configureSearchView()
         
         for (idx, button) in tagButtonCollection.enumerated(){
             designButton(button, idx)
@@ -40,26 +37,9 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    @IBAction func searchTextChanged(_ sender: UITextField) {
-        //앞 뒤 공백을 제외한 단어를 검색어로 지정
-        let searchText = sender.text!.trimmingCharacters(in: .whitespaces)
-        
-        //1. 검색어가 ""가 아니면 검색어를 찾는다
-        //2. 검색어가 ""면 restaurantList를 보여준다.
-        //3. 중복으로 restaurantList값을 보여주지 않기위해서 count 체크를 해서 전체배열과 같으면 갱신하지 않는다.
-        
-        if !searchText.isEmpty {
-            filterRestaurant(searchText)
-        }else if filteredList.count != restaurantList.count{
-            filteredList = restaurantList
-            restaurantTableView.reloadData()
-        }
-    }
-    
     @IBAction func categoryButtonClicked(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
-        searchTextField.text = title
-
+        
         let category = title.replacingOccurrences(of: "#", with: "").trimmingCharacters(in: .whitespaces)
         filterCategory(category)
     }
@@ -79,7 +59,22 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         restaurantTableView.rowHeight = UITableView.automaticDimension
         restaurantTableView.keyboardDismissMode = .onDrag
     }
-
+    
+    private func configureSearchView(){
+        //searchResultsController라는 걸 따로 넣어 줄 수 있음. 같은 VC에서 검색결과 -> nil
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "음식점을 검색해주세요"
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+        searchController.searchBar.searchTextField.tintColor = .systemIndigo
+        searchController.searchBar.searchTextField.clearsOnBeginEditing = true
+        searchController.searchBar.tintColor = .systemIndigo
+        
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.searchResultsUpdater = self
+    }
+    
     private func designButton(_ sender: UIButton, _ idx: Int){
         sender.layer.cornerRadius = 15
         sender.layer.borderWidth = 1.5
@@ -111,7 +106,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         restaurantTableView.reloadData()
     }
-        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.count
     }
@@ -124,8 +119,34 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
-        
         return cell
     }
+    
+}
+
+// UISearchResultsUpdating을 준수
+// UISearchResultsUpdating의 Delegate가 되도록 설정
+// searchController.searchResultsUpdater = self
+extension RestaurantViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text!.trimmingCharacters(in: .whitespaces).lowercased()
+        
+        //1. 검색어가 ""가 아니면 검색어를 찾는다
+        //2. 검색어가 ""면 restaurantList를 보여준다.
+        //3. 중복으로 restaurantList값을 보여주지 않기위해서 count 체크를 해서 전체배열과 같으면 갱신하지 않는다.
+        
+        if !searchText.isEmpty {
+            filteredList = restaurantList.filter{
+                $0.name.lowercased().contains(searchText)
+            }
+        }else if filteredList.count != restaurantList.count{
+            filteredList = restaurantList
+        }
+        
+        restaurantTableView.reloadData()
+        
+        //        dump(filteredList)
+    }
+    
     
 }
