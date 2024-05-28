@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="121" y="-34"/>
         </scene>
-        <!--SeSAC TRAVEL-->
+        <!--Travel Table View Controller-->
         <scene sceneID="Grj-8c-4iW">
             <objects>
                 <tableViewController id="X9X-9e-Tc9" customClass="TravelTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                             <outlet property="delegate" destination="X9X-9e-Tc9" id="8nY-dm-bie"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SeSAC TRAVEL" id="yJH-Ar-jJc"/>
+                    <navigationItem key="navigationItem" id="yJH-Ar-jJc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePJ-uM-b2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -79,8 +79,8 @@
             <connections>
                 <outlet property="cityImageView" destination="cZA-Hu-YfP" id="yiF-Rk-SUs"/>
                 <outlet property="descriptionLabel" destination="lUr-Zd-qts" id="xga-fT-hUr"/>
+                <outlet property="gradeLabel" destination="6qq-i2-Iil" id="LzB-5Q-ep6"/>
                 <outlet property="likeButton" destination="OgL-Ji-6tJ" id="TkB-3k-4nS"/>
-                <outlet property="ratingLabel" destination="6qq-i2-Iil" id="1xm-tv-2MU"/>
                 <outlet property="saveLabel" destination="Zts-Bp-tCk" id="qTM-e5-7D5"/>
                 <outlet property="titleLabel" destination="ihG-Ip-I7U" id="VQT-Px-eur"/>
             </connections>

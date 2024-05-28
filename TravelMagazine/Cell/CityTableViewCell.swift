@@ -9,10 +9,11 @@ import UIKit
 import Kingfisher
 
 class CityTableViewCell: UITableViewCell {
+    static let identifier = "CityTableViewCell"
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var gradeLabel: UILabel!
     @IBOutlet var saveLabel: UILabel!
     @IBOutlet var cityImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
@@ -24,36 +25,34 @@ class CityTableViewCell: UITableViewCell {
     
     func configureData(data: Travel){
         titleLabel.text = data.title
+        
         descriptionLabel.text = data.description
         
-        let rating = data.grade ?? 0.0
-        ratingLabel.text = "평점 " + String(format: "%.1f", rating)
+        gradeLabel.text = data.rateDescription
         
-        let saveCount = data.save ?? 0
-        saveLabel.text = "저장 " + saveCount.formatted()
+        saveLabel.text = data.saveDescription
         
-        if let imageURL =  data.travel_image,
-           let url = URL(string: imageURL){
-            cityImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder_rupy"))
-        }
+        cityImageView.kf.setImage(with: data.convertedImageURL, placeholder: UIImage(named: "placeholder_rupy"))
         
-        let like = data.like ?? false
-        let image = like ? UIImage(systemName: "heart.fill"): UIImage(systemName: "heart")
-        likeButton.setImage(image, for: .normal)
-
+        likeButton.setImage(data.likeImage, for: .normal)
+        
     }
     
     func configureLayout(){
         cityImageView.contentMode = .scaleAspectFill
         cityImageView.layer.cornerRadius = 10
+        
         titleLabel.font = .boldSystemFont(ofSize: 16)
+        
         descriptionLabel.font = .systemFont(ofSize: 13, weight: .medium)
         descriptionLabel.textColor = .darkGray
-        ratingLabel.font = .systemFont(ofSize: 12)
-        ratingLabel.textColor = .darkGray
+        
+        gradeLabel.font = .systemFont(ofSize: 12)
+        gradeLabel.textColor = .darkGray
+        
         saveLabel.font = .systemFont(ofSize: 12)
         saveLabel.textColor = .darkGray
-
+        
         likeButton.tintColor = .white
     }
     

@@ -4,23 +4,59 @@
 //  Created by Den on 2024/05/11.
 //
 
-import Foundation
+import UIKit
 
 struct Travel {
-    var title: String
+    let title: String
     var description: String?
     var travel_image: String?
     var grade: Double?
     var save: Int?
     var like: Bool?
     var ad: Bool
+    
+    var rateDescription: String {
+        if let grade {
+            return "평점 " + String(format: "%.1f", grade)
+        }else{
+            return ""
+        }
+    }
+    
+    var saveDescription: String {
+        if let save {
+            return "저장 " + save.formatted()
+        }else{
+            return ""
+        }
+    }
+    
+    var convertedImageURL : URL? {
+        guard let travel_image, let url = URL(string: travel_image) else{
+            return nil
+        }
+        
+        return url
+    }
+    
+    var likeImage: UIImage {
+        guard let like, !like else {
+            return UIImage(systemName: "heart")!
+        }
+        
+        return UIImage(systemName: "heart.fill")!
+    }
+    
+    var randomColor: UIColor {
+        return UIColor.advertiseColorList.randomElement()!
+    }
 }
 
 struct TravelInfo {
     let travel: [Travel] = [
         Travel(title: "하나우마 베이",
                description: "아름다운 자연을 감상할 수 있는 스노쿨링 명소",
-               travel_image: "https://images.unsplash.com/photo-1539498508910-091b5e859b1d?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+               travel_image: nil,
                grade: 4.8,
                save: 6932,
                like: false,

@@ -12,24 +12,25 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var cityTableView: UITableView!
     
     private let cityList = TravelInfo().travel
-    private let cityIdentifier = "CityTableViewCell"
-    private let advertiseIdentifier = "AdvertiseTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "도시 상세 정보"
         
+        configureView("도시정보")
+        configureTableView()
+    }
+    
+    func configureTableView(){
         cityTableView.delegate = self
         cityTableView.dataSource = self
         
-        let cityNib = UINib(nibName: cityIdentifier, bundle: nil)
-        cityTableView.register(cityNib, forCellReuseIdentifier: cityIdentifier)
+        let cityNib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
+        cityTableView.register(cityNib, forCellReuseIdentifier: CityTableViewCell.identifier)
         
-        let advertiseNib = UINib(nibName: advertiseIdentifier, bundle: nil)
-        cityTableView.register(advertiseNib, forCellReuseIdentifier: advertiseIdentifier)
+        let advertiseNib = UINib(nibName: AdvertiseTableViewCell.identifier, bundle: nil)
+        cityTableView.register(advertiseNib, forCellReuseIdentifier: AdvertiseTableViewCell.identifier)
         
         cityTableView.showsVerticalScrollIndicator = false
-        
     }
     
     //오른쪽에 swipe 액션 생성
@@ -57,11 +58,11 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         let data = cityList[indexPath.row]
         
         if data.ad {
-            let cell = tableView.dequeueReusableCell(withIdentifier: advertiseIdentifier, for: indexPath) as! AdvertiseTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdvertiseTableViewCell.identifier, for: indexPath) as! AdvertiseTableViewCell
             cell.configureData(data: data)
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: cityIdentifier, for: indexPath) as! CityTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as! CityTableViewCell
             cell.configureData(data: data)
             return cell
         }

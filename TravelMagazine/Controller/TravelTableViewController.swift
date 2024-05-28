@@ -13,6 +13,7 @@ class TravelTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView("SeSAC Travel")
         tableView.rowHeight = 450
         tableView.separatorStyle = .none
     }
