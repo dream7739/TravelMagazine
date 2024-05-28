@@ -13,7 +13,7 @@ struct Travel {
     var grade: Double?
     var save: Int?
     var like: Bool?
-    var ad: Bool
+    let ad: Bool
     
     var rateDescription: String {
         if let grade {

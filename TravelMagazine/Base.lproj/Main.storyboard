@@ -35,37 +35,6 @@
             </objects>
             <point key="canvasLocation" x="324" y="562"/>
         </scene>
-        <!--Travel View Controller-->
-        <scene sceneID="c2k-sO-JXN">
-            <objects>
-                <viewController id="F6U-X7-jcC" customClass="TravelViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bZr-HW-gaR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K9w-y1-44B">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cLF-Bd-WVF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="cLF-Bd-WVF" firstAttribute="trailing" secondItem="K9w-y1-44B" secondAttribute="trailing" id="ASu-aj-jJi"/>
-                            <constraint firstItem="cLF-Bd-WVF" firstAttribute="bottom" secondItem="K9w-y1-44B" secondAttribute="bottom" id="VrE-lj-0Yr"/>
-                            <constraint firstItem="K9w-y1-44B" firstAttribute="leading" secondItem="cLF-Bd-WVF" secondAttribute="leading" id="hVi-3e-isr"/>
-                            <constraint firstItem="K9w-y1-44B" firstAttribute="top" secondItem="cLF-Bd-WVF" secondAttribute="top" id="tm3-PA-x5c"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="SHP-nd-xWX"/>
-                    <connections>
-                        <outlet property="travelTableView" destination="K9w-y1-44B" id="sax-ad-bpF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="msX-fK-hEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1415" y="617"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HgY-Ih-2rB">
             <objects>
@@ -296,48 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSG-TF-k1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179" y="-35"/>
-        </scene>
-        <!--Popular City View Controller-->
-        <scene sceneID="wWO-aq-jkJ">
-            <objects>
-                <viewController id="ex4-ae-G4p" customClass="PopularCityViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QI5-qV-Qry">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qiv-BI-hPZ">
-                                <rect key="frame" x="20" y="59" width="353" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G2G-zG-haA">
-                                        <rect key="frame" x="0.0" y="50" width="353" height="44.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2G-zG-haA" id="srR-Tf-lR8">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="44.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Rr6-8q-GUk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Qiv-BI-hPZ" firstAttribute="leading" secondItem="Rr6-8q-GUk" secondAttribute="leading" constant="20" id="2Qw-r4-WzY"/>
-                            <constraint firstItem="Rr6-8q-GUk" firstAttribute="bottom" secondItem="Qiv-BI-hPZ" secondAttribute="bottom" id="h5A-vx-Blb"/>
-                            <constraint firstItem="Qiv-BI-hPZ" firstAttribute="top" secondItem="Rr6-8q-GUk" secondAttribute="top" id="jSr-ae-Rje"/>
-                            <constraint firstItem="Rr6-8q-GUk" firstAttribute="trailing" secondItem="Qiv-BI-hPZ" secondAttribute="trailing" constant="20" id="oUV-TU-fKx"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="eUr-0F-TOo"/>
-                    <connections>
-                        <outlet property="cityTableView" destination="Qiv-BI-hPZ" id="gvg-ds-lSX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Id5-vS-zPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1361" y="1411"/>
+            <point key="canvasLocation" x="2295" y="617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u1I-pl-ugK">
@@ -355,7 +283,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYV-B3-LYW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="-35"/>
+            <point key="canvasLocation" x="1602" y="617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v1R-sF-aoj">
