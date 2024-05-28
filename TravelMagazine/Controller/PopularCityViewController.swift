@@ -48,10 +48,6 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         return UISwipeActionsConfiguration(actions: [share])
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return cityList[indexPath.row].ad ? 70 : 150
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityList.count
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet var searchTextField: UITextField!
@@ -20,16 +21,14 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet var restaurantTableView: UITableView!
     
-    private let restaurantList = RestaurantList().restaurantArray
+    private let restaurantList = RestaurantList.restaurantArray
     private var filteredList:[Restaurant] = []
     private let categoryTitleList = ["한식", "중식", "양식", "기타"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurantTableView.delegate = self
-        restaurantTableView.dataSource = self
-        restaurantTableView.rowHeight = 130
-        restaurantTableView.keyboardDismissMode = .onDrag
+        
+        configureTableView()
         
         searchTextField.clearButtonMode = .whileEditing
         
@@ -70,6 +69,17 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         restaurantTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
     
+    private func configureTableView(){
+        restaurantTableView.delegate = self
+        restaurantTableView.dataSource = self
+        
+        let nib = UINib(nibName: RestaurantTableViewCell.identifier, bundle: nil)
+        restaurantTableView.register(nib, forCellReuseIdentifier: RestaurantTableViewCell.identifier)
+        
+        restaurantTableView.rowHeight = UITableView.automaticDimension
+        restaurantTableView.keyboardDismissMode = .onDrag
+    }
+
     private func designButton(_ sender: UIButton, _ idx: Int){
         sender.layer.cornerRadius = 15
         sender.layer.borderWidth = 1.5
@@ -107,18 +117,13 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as! RestaurantTableViewCell
         
-        let data = filteredList[indexPath.row]
+        cell.configureCell(data: filteredList[indexPath.row])
         
-        cell.nameLabel.text = data.name
-        cell.addressLabel.text = data.address
-        cell.phoneNumberLabel.text = data.phoneNumber
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
-        let image = data.like ? "heart.fill" : "heart"
-        cell.likeButton.setImage(UIImage(systemName: image), for: .normal)
         
         return cell
     }
