@@ -31,6 +31,8 @@
 		886D188C2C020B250086CD19 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D188B2C020B250086CD19 /* Restaurant.swift */; };
 		886D188E2C020FB60086CD19 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D188D2C020FB60086CD19 /* RestaurantViewController.swift */; };
 		886D18902C020FDA0086CD19 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D188F2C020FDA0086CD19 /* RestaurantTableViewCell.swift */; };
+		8877026A2C05D2090070BB98 /* TravelMagazine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 887702692C05D2090070BB98 /* TravelMagazine.storyboard */; };
+		8877026C2C05D2170070BB98 /* TravelInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8877026B2C05D2170070BB98 /* TravelInfo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		886D188B2C020B250086CD19 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		886D188D2C020FB60086CD19 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		886D188F2C020FDA0086CD19 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		887702692C05D2090070BB98 /* TravelMagazine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelMagazine.storyboard; sourceTree = "<group>"; };
+		8877026B2C05D2170070BB98 /* TravelInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 				884F04AF2C01818C0046E60A /* Assets.xcassets */,
 				884F04B12C01818C0046E60A /* LaunchScreen.storyboard */,
 				884F04B42C01818C0046E60A /* Info.plist */,
+				887702692C05D2090070BB98 /* TravelMagazine.storyboard */,
+				8877026B2C05D2170070BB98 /* TravelInfo.storyboard */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -218,9 +224,11 @@
 			files = (
 				884F04B02C01818C0046E60A /* Assets.xcassets in Resources */,
 				884F04B32C01818C0046E60A /* Base in Resources */,
+				8877026A2C05D2090070BB98 /* TravelMagazine.storyboard in Resources */,
 				883442E72C047277007AE746 /* AdvertiseTableViewCell.xib in Resources */,
 				883442E12C047256007AE746 /* CityTableViewCell.xib in Resources */,
 				884F04AE2C01818B0046E60A /* Base in Resources */,
+				8877026C2C05D2170070BB98 /* TravelInfo.storyboard in Resources */,
 				880A91762C05C66900E78241 /* TravelMagazineTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
