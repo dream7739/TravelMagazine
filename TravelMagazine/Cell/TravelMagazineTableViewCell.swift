@@ -8,7 +8,7 @@
 import UIKit
 
 class TravelMagazineTableViewCell: UITableViewCell {
-
+    
     static let identifier = "TravelMagazineTableViewCell"
     
     @IBOutlet var travelImageView: UIImageView!
@@ -18,7 +18,34 @@ class TravelMagazineTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        travelImageView.layer.cornerRadius = 10
+        configureLayout()
     }
     
+    func configureLayout(){
+        titleLabel.font = .boldSystemFont(ofSize: 22)
+        
+        subtitleLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        subtitleLabel.textColor = .lightGray
+        subtitleLabel.numberOfLines = 0
+        
+        dateLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        dateLabel.textColor = .lightGray
+        dateLabel.textAlignment = .right
+
+    }
+    
+    func configureCell(data: Magazine){
+        travelImageView.setImageFromURL(imageStr: data.photo_image)
+        
+        titleLabel.text = data.title
+        
+        subtitleLabel.text = data.subtitle
+        
+        dateLabel.text = data.date.convertDateFormat()
+        
+    }
+    
+    override func layoutSubviews() {
+        travelImageView.layer.cornerRadius = 10
+    }
 }
