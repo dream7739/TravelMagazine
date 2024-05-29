@@ -10,6 +10,8 @@
 		880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91712C05BADD00E78241 /* UIViewController + Extension.swift */; };
 		880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */; };
 		880A91762C05C66900E78241 /* TravelMagazineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */; };
+		8833D7112C07194400C6CFFA /* DetailCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7102C07194400C6CFFA /* DetailCityViewController.swift */; };
+		8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */; };
 		883442D42C047127007AE746 /* PopularCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442D32C047127007AE746 /* PopularCityViewController.swift */; };
 		883442DC2C047197007AE746 /* TravelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442DB2C047197007AE746 /* TravelModel.swift */; };
 		883442E12C047256007AE746 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883442E02C047256007AE746 /* CityTableViewCell.xib */; };
@@ -40,6 +42,8 @@
 		880A91712C05BADD00E78241 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMagazineTableViewCell.swift; sourceTree = "<group>"; };
 		880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelMagazineTableViewCell.xib; sourceTree = "<group>"; };
+		8833D7102C07194400C6CFFA /* DetailCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCityViewController.swift; sourceTree = "<group>"; };
+		8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseViewController.swift; sourceTree = "<group>"; };
 		883442D32C047127007AE746 /* PopularCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCityViewController.swift; sourceTree = "<group>"; };
 		883442DB2C047197007AE746 /* TravelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelModel.swift; sourceTree = "<group>"; };
 		883442DF2C047256007AE746 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				884F04C02C01843E0046E60A /* TravelViewController.swift */,
 				886D188D2C020FB60086CD19 /* RestaurantViewController.swift */,
 				883442D32C047127007AE746 /* PopularCityViewController.swift */,
+				8833D7102C07194400C6CFFA /* DetailCityViewController.swift */,
+				8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 				884F04BB2C0181C70046E60A /* MagazineInfo.swift in Sources */,
 				883442E82C047277007AE746 /* AdvertiseTableViewCell.swift in Sources */,
 				884F04A72C01818B0046E60A /* AppDelegate.swift in Sources */,
+				8833D7112C07194400C6CFFA /* DetailCityViewController.swift in Sources */,
 				880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */,
 				884F04A92C01818B0046E60A /* SceneDelegate.swift in Sources */,
+				8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */,
 				8884B0722C06087D002A6D61 /* RestaurantTableViewCell.swift in Sources */,
 				886D188C2C020B250086CD19 /* Restaurant.swift in Sources */,
 				880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */,

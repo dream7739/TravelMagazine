@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopularCityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PopularCityViewController: UIViewController {
     
     @IBOutlet var cityTableView: UITableView!
     
@@ -18,8 +18,12 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         
         configureView("도시정보")
         configureTableView()
+        
     }
     
+}
+
+extension PopularCityViewController {
     func configureTableView(){
         cityTableView.delegate = self
         cityTableView.dataSource = self
@@ -34,7 +38,9 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
         
         cityTableView.rowHeight = UITableView.automaticDimension
     }
-    
+}
+
+extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource{
     //오른쪽에 swipe 액션 생성
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let share = UIContextualAction(style: .normal, title: "share") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
@@ -64,9 +70,20 @@ class PopularCityViewController: UIViewController, UITableViewDelegate, UITableV
             cell.configureData(data: data)
             return cell
         }
-        
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = cityList[indexPath.row]
+        
+        if data.ad {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "AdvertiseViewController") as! AdvertiseViewController
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            present(nav, animated: true)
+        }else{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCityViewController") as! DetailCityViewController
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
