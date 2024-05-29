@@ -18,11 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-oc-oh1">
-                                <rect key="frame" x="0.0" y="130" width="393" height="688"/>
+                                <rect key="frame" x="0.0" y="164" width="393" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-RU-Ovd">
+                                <rect key="frame" x="0.0" y="69" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SLR-yd-ji8"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="tJq-Wv-e5R"/>
+                                </connections>
+                            </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Loa-Ms-9Rh">
-                                <rect key="frame" x="20" y="79" width="353" height="32"/>
+                                <rect key="frame" x="20" y="123" width="353" height="32"/>
                                 <segments>
                                     <segment title="모두"/>
                                     <segment title="국내"/>
@@ -34,15 +44,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Loa-Ms-9Rh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Erk-VC-YVP"/>
-                            <constraint firstItem="GgA-oc-oh1" firstAttribute="top" secondItem="Loa-Ms-9Rh" secondAttribute="bottom" constant="20" id="NO5-pP-hhR"/>
                             <constraint firstItem="GgA-oc-oh1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Pvl-gw-VvG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Loa-Ms-9Rh" secondAttribute="trailing" constant="20" id="TQB-Pp-jta"/>
-                            <constraint firstItem="Loa-Ms-9Rh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="rhK-Js-nOh"/>
+                            <constraint firstItem="ECA-RU-Ovd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XYQ-t3-1j2"/>
+                            <constraint firstItem="ECA-RU-Ovd" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="a1x-3O-ZsM"/>
+                            <constraint firstItem="ECA-RU-Ovd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="h7S-6v-2FE"/>
+                            <constraint firstItem="Loa-Ms-9Rh" firstAttribute="top" secondItem="ECA-RU-Ovd" secondAttribute="bottom" constant="10" id="mLs-3b-bAr"/>
+                            <constraint firstItem="GgA-oc-oh1" firstAttribute="top" secondItem="Loa-Ms-9Rh" secondAttribute="bottom" constant="10" id="mlJ-XH-Xbr"/>
                             <constraint firstItem="GgA-oc-oh1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tCh-9J-PDS"/>
                             <constraint firstItem="GgA-oc-oh1" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="uIl-RS-4JS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="citySearchBar" destination="ECA-RU-Ovd" id="jfQ-4C-Qmd"/>
                         <outlet property="citySegment" destination="Loa-Ms-9Rh" id="OnZ-Bq-dab"/>
                         <outlet property="cityTableView" destination="GgA-oc-oh1" id="bve-1D-UcI"/>
                     </connections>

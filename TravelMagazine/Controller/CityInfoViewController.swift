@@ -8,6 +8,7 @@
 import UIKit
 
 class CityInfoViewController: UIViewController {
+    @IBOutlet var citySearchBar: UISearchBar!
     @IBOutlet var citySegment: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
     
@@ -19,6 +20,7 @@ class CityInfoViewController: UIViewController {
         configureView("인기 도시")
         configureTableView()
         configureSegment()
+        configureSearchBar()
     }
 }
 
@@ -30,6 +32,8 @@ extension CityInfoViewController {
         cityTableView.delegate = self
         cityTableView.dataSource = self
         cityTableView.rowHeight = 150
+        cityTableView.separatorStyle = .none
+        cityTableView.keyboardDismissMode = .onDrag
         
         let nib = UINib(nibName: CityInfoTableViewCell.identifier, bundle: nil)
         cityTableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.identifier)
@@ -39,12 +43,19 @@ extension CityInfoViewController {
         citySegment.addTarget(self, action: #selector(segmentClicked), for: .valueChanged)
     }
     
-    @objc func segmentClicked(sender: UISegmentedControl){
-        filterCityList(sender.selectedSegmentIndex)
-        cityTableView.reloadData()
+    private func configureSearchBar(){
+        citySearchBar.delegate = self
+        citySearchBar.searchTextField.tintColor = .black
+        citySearchBar.searchTextField.placeholder = "도시를 입력해주세요"
     }
     
-    private func filterCityList(_ idx: Int){
+    @objc func segmentClicked(sender: UISegmentedControl){
+        filterDomesticCityList(sender.selectedSegmentIndex)
+        cityTableView.reloadData()
+        cityTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+    }
+    
+    private func filterDomesticCityList(_ idx: Int){
         switch idx {
         case 0:
             filteredList = list
@@ -69,6 +80,44 @@ extension CityInfoViewController : UITableViewDelegate, UITableViewDataSource {
         cell.configureData(data: filteredList[indexPath.row])
         return cell
     }
+}
+
+extension CityInfoViewController : UISearchBarDelegate {
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let input = searchBar.text!
+        
+        if !examineEmptyText(input) && input.koreanLangCheck() {
+            getFilteredCityList(input)
+        }else if examineEmptyText(input) && filteredList.count != list.count {
+            filteredList = list
+        }
+                
+        cityTableView.reloadData()
+
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let input = searchBar.text!
+        
+        if !examineEmptyText(input) && input.koreanLangCheck(){
+            getFilteredCityList(input)
+        }else if examineEmptyText(input) && filteredList.count != list.count {
+            filteredList = list
+        }
+        
+        cityTableView.reloadData()
+    }
+    
+    func examineEmptyText(_ input: String) -> Bool {
+        return input.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+    
+    func getFilteredCityList(_ input: String){
+        filteredList = list.filter{ 
+            $0.city_name.localizedCaseInsensitiveContains(input) ||
+            $0.city_english_name.localizedCaseInsensitiveContains(input) ||
+            $0.city_explain.localizedCaseInsensitiveContains(input)
+        }
+    }
 }
