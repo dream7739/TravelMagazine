@@ -12,7 +12,7 @@ class DetailCityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView("관광지 화면")
-        configureNavItem("chevron.left", style: .push)
+        configureNavItem("chevron.left", style: .pop)
     }
 
 }

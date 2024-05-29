@@ -8,8 +8,8 @@
 import UIKit
 
 enum CustomTransitionStyle{
-    case push
-    case present
+    case pop
+    case dismiss
 }
 
 extension UIViewController {
@@ -20,9 +20,9 @@ extension UIViewController {
     func configureNavItem(_ image: String, style: CustomTransitionStyle){
         let action: Selector
         switch style{
-        case .push:
+        case .pop:
             action = #selector(popButtonClicked)
-        case .present:
+        case .dismiss:
             action = #selector(dismissButtonClicked)
         }
         
