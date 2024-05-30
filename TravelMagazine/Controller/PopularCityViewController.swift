@@ -83,6 +83,7 @@ extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource
             present(nav, animated: true)
         }else{
             let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCityViewController") as! DetailCityViewController
+            vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         }
     }
