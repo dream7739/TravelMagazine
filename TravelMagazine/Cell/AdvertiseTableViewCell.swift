@@ -20,8 +20,7 @@ class AdvertiseTableViewCell: UITableViewCell {
     }
 
     func configureData(data: Travel){
-        let randomColor = data.randomColor
-        adBackgroundView.backgroundColor = randomColor
+        adBackgroundView.backgroundColor = data.randomColor
         titleLabel.text = data.title
     }
     

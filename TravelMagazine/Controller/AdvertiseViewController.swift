@@ -24,6 +24,8 @@ class AdvertiseViewController: UIViewController {
     func configureData(data: Travel?){
         guard let data else { return }
         
+        view.backgroundColor = data.randomColor
+        
         titleImageView.image = UIImage(named: "placeholder_rupy")
         titleImageView.contentMode = .scaleAspectFill
         titleImageView.layer.cornerRadius = 10
