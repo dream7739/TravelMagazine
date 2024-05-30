@@ -28,8 +28,12 @@ class MapViewController: UIViewController {
     }
     
     private func configureNav(){
-        let item = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterButtonClicked))
-        navigationItem.rightBarButtonItem = item
+        let filterItem = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterButtonClicked))
+        let totalItem = UIBarButtonItem(title: "전체", style: .plain, target: self, action: #selector(totalButtonClicked))
+        
+        navigationItem.rightBarButtonItems = [filterItem, totalItem]
+        
+  
     }
     
     private func mapViewConfigure(){
@@ -75,6 +79,11 @@ class MapViewController: UIViewController {
         foodActionSheet.addAction(cancelAction)
         
         present(foodActionSheet, animated: true)
+    }
+    
+    @objc func totalButtonClicked(){
+        mapView.removeAnnotations(foodAnnotations)
+        mapView.addAnnotations(foodAnnotations)
     }
     
     func filterCategoryFood(_ category: String){

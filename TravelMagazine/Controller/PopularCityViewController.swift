@@ -87,5 +87,7 @@ extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource
             vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         }
+        
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
