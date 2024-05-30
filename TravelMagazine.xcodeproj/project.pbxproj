@@ -19,6 +19,8 @@
 		883442E72C047277007AE746 /* AdvertiseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883442E62C047277007AE746 /* AdvertiseTableViewCell.xib */; };
 		883442E82C047277007AE746 /* AdvertiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442E52C047277007AE746 /* AdvertiseTableViewCell.swift */; };
 		883442EE2C0484AB007AE746 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442ED2C0484AB007AE746 /* UIColor + Extension.swift */; };
+		8838BFD82C08675D005E2B8C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838BFD72C08675D005E2B8C /* MapViewController.swift */; };
+		8838BFDA2C08729F005E2B8C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */; };
 		884F04A72C01818B0046E60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04A62C01818B0046E60A /* AppDelegate.swift */; };
 		884F04A92C01818B0046E60A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04A82C01818B0046E60A /* SceneDelegate.swift */; };
 		884F04AB2C01818B0046E60A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04AA2C01818B0046E60A /* ViewController.swift */; };
@@ -56,6 +58,8 @@
 		883442E52C047277007AE746 /* AdvertiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseTableViewCell.swift; sourceTree = "<group>"; };
 		883442E62C047277007AE746 /* AdvertiseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertiseTableViewCell.xib; sourceTree = "<group>"; };
 		883442ED2C0484AB007AE746 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		8838BFD72C08675D005E2B8C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		884F04A32C01818B0046E60A /* TravelMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884F04A62C01818B0046E60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884F04A82C01818B0046E60A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				8833D7102C07194400C6CFFA /* DetailCityViewController.swift */,
 				8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */,
 				888F7F0F2C07285E00463CD0 /* CityInfoViewController.swift */,
+				8838BFD72C08675D005E2B8C /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				883442DB2C047197007AE746 /* TravelModel.swift */,
 				886D188B2C020B250086CD19 /* Restaurant.swift */,
 				884F04BA2C0181C70046E60A /* MagazineInfo.swift */,
+				8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 				883442DC2C047197007AE746 /* TravelModel.swift in Sources */,
 				883442E22C047256007AE746 /* CityTableViewCell.swift in Sources */,
 				883442EE2C0484AB007AE746 /* UIColor + Extension.swift in Sources */,
+				8838BFD82C08675D005E2B8C /* MapViewController.swift in Sources */,
 				884F04BB2C0181C70046E60A /* MagazineInfo.swift in Sources */,
 				883442E82C047277007AE746 /* AdvertiseTableViewCell.swift in Sources */,
 				888F7F102C07285E00463CD0 /* CityInfoViewController.swift in Sources */,
@@ -289,6 +296,7 @@
 				886D188C2C020B250086CD19 /* Restaurant.swift in Sources */,
 				880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */,
 				888F7F142C0728E000463CD0 /* CityInfoTableViewCell.swift in Sources */,
+				8838BFDA2C08729F005E2B8C /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

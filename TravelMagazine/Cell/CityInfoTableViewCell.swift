@@ -20,10 +20,12 @@ class CityInfoTableViewCell: UITableViewCell {
         configureLayout()
     }
 
+    // clipsToBounds, maskToBounds
     func configureLayout(){
         cityBackgroundView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
         cityBackgroundView.layer.cornerRadius = 30
         cityBackgroundView.layer.masksToBounds = true
+        cityBackgroundView.layer.opacity = 0.3
         
         cityImageView.contentMode = .scaleAspectFill
         

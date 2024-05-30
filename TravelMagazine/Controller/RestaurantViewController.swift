@@ -8,8 +8,9 @@
 import UIKit
 
 
-class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class RestaurantViewController: UIViewController{
     
+    @IBOutlet var mapButton: UIButton!
     @IBOutlet var koreanButton: UIButton!
     @IBOutlet var chineseButton: UIButton!
     @IBOutlet var westernButton: UIButton!
@@ -24,6 +25,8 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureMapButton()
         
         configureTableView()
         
@@ -75,6 +78,20 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         searchController.searchResultsUpdater = self
     }
     
+}
+
+extension RestaurantViewController {
+    func configureMapButton(){
+        mapButton.setImage(UIImage(systemName: "map"), for: .normal)
+        mapButton.tintColor = .systemIndigo
+        mapButton.addTarget(self, action: #selector(mapButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func mapButtonClicked(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func designButton(_ sender: UIButton, _ idx: Int){
         sender.layer.cornerRadius = 15
         sender.layer.borderWidth = 1.5
@@ -106,7 +123,9 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         restaurantTableView.reloadData()
     }
-    
+}
+
+extension RestaurantViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.count
     }
@@ -121,7 +140,6 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
-    
 }
 
 // UISearchResultsUpdating을 준수

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fH2-dV-umR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K3L-5Z-7qu">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,12 +116,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L24-ZO-bRk">
+                                <rect key="frame" x="340" y="108.66666666666669" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="L24-ZO-bRk" secondAttribute="height" id="PpX-4T-mPa"/>
+                                    <constraint firstAttribute="width" constant="39" id="ksO-lP-Wbz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yur-re-2ZA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="L24-ZO-bRk" firstAttribute="leading" secondItem="8mN-au-Bno" secondAttribute="trailing" constant="10" id="2Wk-yl-pyE"/>
                             <constraint firstItem="hyE-rc-BgU" firstAttribute="bottom" secondItem="Yur-re-2ZA" secondAttribute="bottom" id="MTB-XL-3SR"/>
                             <constraint firstItem="hyE-rc-BgU" firstAttribute="top" secondItem="8mN-au-Bno" secondAttribute="bottom" constant="20" id="Wke-y9-Xc5"/>
+                            <constraint firstItem="L24-ZO-bRk" firstAttribute="centerY" secondItem="8mN-au-Bno" secondAttribute="centerY" id="Z9l-7x-miT"/>
                             <constraint firstItem="8mN-au-Bno" firstAttribute="top" secondItem="Yur-re-2ZA" secondAttribute="top" constant="10" id="dkO-F1-grh"/>
                             <constraint firstItem="hyE-rc-BgU" firstAttribute="leading" secondItem="Yur-re-2ZA" secondAttribute="leading" id="etQ-ht-q0u"/>
                             <constraint firstItem="hyE-rc-BgU" firstAttribute="trailing" secondItem="Yur-re-2ZA" secondAttribute="trailing" id="is6-ga-AYp"/>
@@ -132,6 +144,7 @@
                         <outlet property="chineseButton" destination="5mG-pW-hDq" id="wFv-zj-bSO"/>
                         <outlet property="etcButton" destination="LCZ-tp-3fQ" id="h3e-4A-tik"/>
                         <outlet property="koreanButton" destination="q1w-di-t4C" id="Oh4-JT-hYF"/>
+                        <outlet property="mapButton" destination="L24-ZO-bRk" id="3Rb-Ba-JVh"/>
                         <outlet property="restaurantTableView" destination="hyE-rc-BgU" id="qiC-GI-m31"/>
                         <outlet property="westernButton" destination="iQe-0i-dAM" id="xHl-v0-YHk"/>
                         <outletCollection property="tagButtonCollection" destination="q1w-di-t4C" collectionClass="NSMutableArray" id="dfE-uv-bP4"/>
@@ -142,7 +155,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSG-TF-k1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2005" y="896"/>
+            <point key="canvasLocation" x="2003.8167938931297" y="895.77464788732402"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="EBq-w3-83q">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="LS4-KM-gYF" customClass="MapViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vSZ-HZ-AuM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hW1-iB-v68">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sQe-eb-sPs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hW1-iB-v68" firstAttribute="leading" secondItem="sQe-eb-sPs" secondAttribute="leading" id="7VT-8u-XZX"/>
+                            <constraint firstItem="hW1-iB-v68" firstAttribute="bottom" secondItem="sQe-eb-sPs" secondAttribute="bottom" id="XTt-gd-eEB"/>
+                            <constraint firstItem="hW1-iB-v68" firstAttribute="trailing" secondItem="sQe-eb-sPs" secondAttribute="trailing" id="cy8-RV-dvC"/>
+                            <constraint firstItem="hW1-iB-v68" firstAttribute="top" secondItem="sQe-eb-sPs" secondAttribute="top" id="rbi-8f-Oy1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="hW1-iB-v68" id="rrn-Nr-L6M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOv-wL-gfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2776.3358778625952" y="895.77464788732402"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u1I-pl-ugK">
@@ -160,7 +203,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYV-B3-LYW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="896"/>
+            <point key="canvasLocation" x="1115" y="896"/>
         </scene>
         <!--TravelInfo-->
         <scene sceneID="fIa-WZ-AuN">
