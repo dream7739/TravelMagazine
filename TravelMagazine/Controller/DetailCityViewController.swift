@@ -33,6 +33,8 @@ extension DetailCityViewController {
         
         if let image = data.travel_image {
             cityImageView.setImageFromURL(imageStr: image)
+        }else{
+            cityImageView.image = UIImage(named: "placeholder_rupy")
         }
         
         nameLabel.text = data.title

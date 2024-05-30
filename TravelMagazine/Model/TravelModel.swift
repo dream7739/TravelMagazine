@@ -48,7 +48,9 @@ struct Travel {
     }
     
     var randomColor: UIColor {
-        return UIColor.advertiseColorList.randomElement()!
+        get{
+            return UIColor.advertiseColorList.randomElement()!
+        }
     }
 }
 

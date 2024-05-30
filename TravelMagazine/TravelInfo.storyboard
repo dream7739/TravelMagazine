@@ -129,21 +129,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="광고 화면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONP-hZ-Wjk">
-                                <rect key="frame" x="136" y="361" width="125" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qDp-yD-2NI">
+                                <rect key="frame" x="53" y="99" width="287" height="378"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qDp-yD-2NI" secondAttribute="height" multiplier="41:54" id="ZQz-fV-xcZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGV-a6-zz3">
+                                <rect key="frame" x="53" y="497" width="287" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="il9-ZP-F2t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UGV-a6-zz3" firstAttribute="leading" secondItem="qDp-yD-2NI" secondAttribute="leading" id="3PO-Bk-w0Z"/>
+                            <constraint firstItem="UGV-a6-zz3" firstAttribute="trailing" secondItem="qDp-yD-2NI" secondAttribute="trailing" id="DQj-jL-Tco"/>
+                            <constraint firstItem="qDp-yD-2NI" firstAttribute="width" secondItem="FiU-P3-JCN" secondAttribute="width" multiplier="0.73028" id="P95-ns-0UZ"/>
+                            <constraint firstItem="qDp-yD-2NI" firstAttribute="centerX" secondItem="il9-ZP-F2t" secondAttribute="centerX" id="UFd-gA-zlt"/>
+                            <constraint firstItem="UGV-a6-zz3" firstAttribute="top" secondItem="qDp-yD-2NI" secondAttribute="bottom" constant="20" id="dAi-sP-XgY"/>
+                            <constraint firstItem="qDp-yD-2NI" firstAttribute="top" secondItem="il9-ZP-F2t" secondAttribute="top" constant="40" id="nbH-4A-1nj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleImageView" destination="qDp-yD-2NI" id="g5H-VZ-hYP"/>
+                        <outlet property="titleLabel" destination="UGV-a6-zz3" id="6Gx-6d-PO0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSu-4F-PCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3066" y="2100"/>
+            <point key="canvasLocation" x="3063.3587786259541" y="2100"/>
         </scene>
     </scenes>
     <resources>

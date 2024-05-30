@@ -80,6 +80,7 @@ extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             nav.modalTransitionStyle = .crossDissolve
+            vc.data = data
             present(nav, animated: true)
         }else{
             let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCityViewController") as! DetailCityViewController
