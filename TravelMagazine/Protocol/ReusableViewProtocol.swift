@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ReusableViewProtocol {
+    static var reuseIdentifier: String { get }
+}

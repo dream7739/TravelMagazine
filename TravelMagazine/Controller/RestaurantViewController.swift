@@ -16,12 +16,11 @@ class RestaurantViewController: UIViewController{
     @IBOutlet var westernButton: UIButton!
     @IBOutlet var etcButton: UIButton!
     @IBOutlet var tagButtonCollection : [UIButton]!
-    
     @IBOutlet var restaurantTableView: UITableView!
     
+    private let categoryList = RestaurantList.categoryArray
     private let restaurantList = RestaurantList.restaurantArray
     private var filteredList:[Restaurant] = []
-    private let categoryTitleList = ["한식", "중식", "양식", "기타"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +38,11 @@ class RestaurantViewController: UIViewController{
         filteredList = restaurantList
     }
     
-    
     @IBAction func categoryButtonClicked(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
         
         let category = title.replacingOccurrences(of: "#", with: "").trimmingCharacters(in: .whitespaces)
+        
         filterCategory(category)
     }
     
@@ -56,8 +55,8 @@ class RestaurantViewController: UIViewController{
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
         
-        let nib = UINib(nibName: RestaurantTableViewCell.identifier, bundle: nil)
-        restaurantTableView.register(nib, forCellReuseIdentifier: RestaurantTableViewCell.identifier)
+        let nib = UINib(nibName: RestaurantTableViewCell.reuseIdentifier, bundle: nil)
+        restaurantTableView.register(nib, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
         
         restaurantTableView.rowHeight = UITableView.automaticDimension
         restaurantTableView.keyboardDismissMode = .onDrag
@@ -98,7 +97,7 @@ extension RestaurantViewController {
         sender.layer.borderColor = UIColor.systemIndigo.cgColor
         sender.tintColor = .systemIndigo
         
-        let buttonTitle = "# \(categoryTitleList[idx])"
+        let buttonTitle = "# \(categoryList[idx])"
         sender.setTitle(buttonTitle, for: .normal)
     }
     
@@ -113,7 +112,7 @@ extension RestaurantViewController {
     private func filterCategory(_ category: String){
         if category == "기타"{
             filteredList = restaurantList.filter{
-                !categoryTitleList.contains($0.category)
+                !categoryList.contains($0.category)
             }
         }else{
             filteredList = restaurantList.filter{
@@ -131,7 +130,7 @@ extension RestaurantViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.reuseIdentifier, for: indexPath) as! RestaurantTableViewCell
         
         cell.configureCell(data: filteredList[indexPath.row])
         
@@ -163,7 +162,6 @@ extension RestaurantViewController : UISearchResultsUpdating {
         
         restaurantTableView.reloadData()
         
-        //        dump(filteredList)
     }
     
     

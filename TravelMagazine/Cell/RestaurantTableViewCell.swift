@@ -8,9 +8,7 @@
 import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
-    
-    static let identifier = "RestaurantTableViewCell"
-    
+        
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var phoneNumberLabel: UILabel!
@@ -22,12 +20,12 @@ class RestaurantTableViewCell: UITableViewCell {
     }
     
     func configureLayout(){
-        nameLabel.font = .boldSystemFont(ofSize: 21)
+        nameLabel.font = .primary
         
-        addressLabel.font = .systemFont(ofSize: 17, weight: .medium)
+        addressLabel.font = .secondary
         addressLabel.textColor = .gray
         
-        phoneNumberLabel.font = .systemFont(ofSize: 15, weight: .medium)
+        phoneNumberLabel.font = .tertiary
         phoneNumberLabel.textColor = .gray
     }
     
@@ -39,4 +37,10 @@ class RestaurantTableViewCell: UITableViewCell {
         likeButton.setImage(data.likeImage, for: .normal)
     }
     
+}
+
+extension RestaurantTableViewCell : ReusableViewProtocol {
+    static var reuseIdentifier: String  {
+        return String(describing: self)
+    }
 }

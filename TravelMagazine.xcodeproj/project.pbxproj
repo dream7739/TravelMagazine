@@ -10,6 +10,8 @@
 		880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91712C05BADD00E78241 /* UIViewController + Extension.swift */; };
 		880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */; };
 		880A91762C05C66900E78241 /* TravelMagazineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */; };
+		88197A922C08CC44004C73D2 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */; };
+		88197A942C08CD33004C73D2 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A932C08CD33004C73D2 /* UIFont + Extension.swift */; };
 		8833D7112C07194400C6CFFA /* DetailCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7102C07194400C6CFFA /* DetailCityViewController.swift */; };
 		8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */; };
 		883442D42C047127007AE746 /* PopularCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442D32C047127007AE746 /* PopularCityViewController.swift */; };
@@ -49,6 +51,8 @@
 		880A91712C05BADD00E78241 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMagazineTableViewCell.swift; sourceTree = "<group>"; };
 		880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelMagazineTableViewCell.xib; sourceTree = "<group>"; };
+		88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		88197A932C08CD33004C73D2 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		8833D7102C07194400C6CFFA /* DetailCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCityViewController.swift; sourceTree = "<group>"; };
 		8833D7122C07194D00C6CFFA /* AdvertiseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseViewController.swift; sourceTree = "<group>"; };
 		883442D32C047127007AE746 /* PopularCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCityViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		88197A902C08CC22004C73D2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		883442EB2C048463007AE746 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 				885586412C01A07A0037E230 /* String + Extension.swift */,
 				883442ED2C0484AB007AE746 /* UIColor + Extension.swift */,
 				880A91712C05BADD00E78241 /* UIViewController + Extension.swift */,
+				88197A932C08CD33004C73D2 /* UIFont + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -170,6 +183,7 @@
 		884F04A52C01818B0046E60A /* TravelMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				88197A902C08CC22004C73D2 /* Protocol */,
 				880A91702C05B8B800E78241 /* Controller */,
 				880A916F2C05B8AB00E78241 /* Cell */,
 				883442EC2C048475007AE746 /* Model */,
@@ -289,7 +303,9 @@
 				884F04A72C01818B0046E60A /* AppDelegate.swift in Sources */,
 				8833D7112C07194400C6CFFA /* DetailCityViewController.swift in Sources */,
 				888F7F162C0728FE00463CD0 /* CityInfo.swift in Sources */,
+				88197A922C08CC44004C73D2 /* ReusableViewProtocol.swift in Sources */,
 				880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */,
+				88197A942C08CD33004C73D2 /* UIFont + Extension.swift in Sources */,
 				884F04A92C01818B0046E60A /* SceneDelegate.swift in Sources */,
 				8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */,
 				8884B0722C06087D002A6D61 /* RestaurantTableViewCell.swift in Sources */,

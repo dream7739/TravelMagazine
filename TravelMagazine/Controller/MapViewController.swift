@@ -13,7 +13,7 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     private let list = RestaurantList.restaurantArray
-    private let categoryList = ["한식", "중식", "양식", "기타", "전체"]
+    private let categoryList = RestaurantList.categoryArray
     private var foodAnnotations: [MKAnnotation] = []
     private var filteredAnnotations: [MKAnnotation] = []
     
@@ -27,12 +27,12 @@ class MapViewController: UIViewController {
         
     }
     
-    func configureNav(){
+    private func configureNav(){
         let item = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterButtonClicked))
         navigationItem.rightBarButtonItem = item
     }
     
-    func mapViewConfigure(){
+    private func mapViewConfigure(){
         mapView.delegate = self
         
         let center = CLLocationCoordinate2D(latitude: 37.517742, longitude: 126.886463)
@@ -42,6 +42,7 @@ class MapViewController: UIViewController {
         
         mapView.region = MKCoordinateRegion(center: center, span: span)
         
+        //커스텀 뷰를 등록한다. 테이블 뷰 처럼 재사용 하는것 같다
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.identifier)
         
         //어노테이션을 생성
@@ -51,13 +52,12 @@ class MapViewController: UIViewController {
         mapView.addAnnotations(foodAnnotations)
     }
     
-    func createAnnotation(){
+    private func createAnnotation(){
         for listItem in list {
             let location = CLLocationCoordinate2D(latitude: listItem.latitude, longitude: listItem.longitude)
             let pin = CustomAnnotation(title: listItem.name, category: listItem.category, coordinate: location)
             foodAnnotations.append(pin)
         }
-        
     }
     
     @objc func filterButtonClicked(){
@@ -81,9 +81,12 @@ class MapViewController: UIViewController {
         if category == "기타" {
             filteredAnnotations = foodAnnotations.filter{ item in
                 let convertItem = item as! CustomAnnotation
-                if !categoryList.contains(convertItem.category!) {
+                guard let convertCategory = convertItem.category else { return false }
+                
+                if !categoryList.contains(convertCategory) {
                     return true
                 }
+                
                 return false
             }
         }else if category == "전체"{
@@ -91,13 +94,15 @@ class MapViewController: UIViewController {
         }else {
             filteredAnnotations = foodAnnotations.filter{ item in
                 let convertItem = item as! CustomAnnotation
-                if convertItem.category == category{
+                guard let convertCategory = convertItem.category else { return false }
+                
+                if convertCategory == category{
                     return true
                 }
+                
                 return false
             }
         }
-//        dump(filteredAnnotations)
         
         mapView.removeAnnotations(foodAnnotations)
         mapView.addAnnotations(filteredAnnotations)
