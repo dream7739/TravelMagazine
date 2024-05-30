@@ -23,8 +23,8 @@ class TravelViewController: UIViewController, UITableViewDelegate, UITableViewDa
         travelTableView.delegate = self
         travelTableView.dataSource = self
         
-        let nib = UINib(nibName: TravelMagazineTableViewCell.identifier, bundle: nil)
-        travelTableView.register(nib, forCellReuseIdentifier: TravelMagazineTableViewCell.identifier)
+        let nib = UINib(nibName: TravelMagazineTableViewCell.reuseIdentifier, bundle: nil)
+        travelTableView.register(nib, forCellReuseIdentifier: TravelMagazineTableViewCell.reuseIdentifier)
         
         travelTableView.rowHeight = UITableView.automaticDimension
         travelTableView.separatorStyle = .none
@@ -32,7 +32,7 @@ class TravelViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //스크롤으로 인해서 셀이 화면에서 보이지 않게 되면 호출
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.identifier, for: indexPath) as! TravelMagazineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.reuseIdentifier, for: indexPath) as! TravelMagazineTableViewCell
         
         cell.travelImageView.cancelDownLoadImage()
     }
@@ -43,7 +43,7 @@ class TravelViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.identifier, for: indexPath) as! TravelMagazineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.reuseIdentifier, for: indexPath) as! TravelMagazineTableViewCell
         
         cell.configureCell(data: travelMegazine[indexPath.row])
     

@@ -8,9 +8,7 @@
 import UIKit
 
 class TravelMagazineTableViewCell: UITableViewCell {
-    
-    static let identifier = "TravelMagazineTableViewCell"
-    
+        
     @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
@@ -22,13 +20,13 @@ class TravelMagazineTableViewCell: UITableViewCell {
     }
     
     func configureLayout(){
-        titleLabel.font = .boldSystemFont(ofSize: 22)
+        titleLabel.font = .primary
         
-        subtitleLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        subtitleLabel.font = .tertiary
         subtitleLabel.textColor = .lightGray
         subtitleLabel.numberOfLines = 0
         
-        dateLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        dateLabel.font = .quanternary
         dateLabel.textColor = .lightGray
         dateLabel.textAlignment = .right
 
@@ -47,5 +45,11 @@ class TravelMagazineTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         travelImageView.layer.cornerRadius = 10
+    }
+}
+
+extension TravelMagazineTableViewCell : ReusableViewProtocol {
+    static var reuseIdentifier: String {
+        return String(describing: self)
     }
 }

@@ -22,4 +22,8 @@ extension UIFont {
     static var tertiary : UIFont {
         return systemFont(ofSize: 15, weight: .medium)
     }
+    
+    static var quanternary: UIFont {
+        return .systemFont(ofSize: 13, weight: .medium)
+    }
 }
