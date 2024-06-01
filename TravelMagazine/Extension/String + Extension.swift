@@ -9,14 +9,14 @@ import Foundation
 
 extension String {
     func convertDateFormat() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd"
-        guard let date = dateFormatter.date(from: self) else { return "" }
+        let dateToStrFormatter = DateFormatter()
+        dateToStrFormatter.dateFormat = "yyMMdd"
+        guard let date = dateToStrFormatter.date(from: self) else { return "" }
         
-        let dateStrFormatter = DateFormatter()
-        dateStrFormatter.dateFormat = "yy년 MM월 dd일"
-        let travelDateStr = dateStrFormatter.string(from: date)
-        return travelDateStr
+        let strToDateFormatter = DateFormatter()
+        strToDateFormatter.dateFormat = "yy년 MM월 dd일"
+        let convertedDate = strToDateFormatter.string(from: date)
+        return convertedDate
     }
     
     func koreanLangCheck() -> Bool {

@@ -32,20 +32,12 @@ struct Travel {
         }
     }
     
-    var convertedImageURL : URL? {
-        guard let travel_image, let url = URL(string: travel_image) else{
-            return nil
-        }
-        
-        return url
-    }
-    
     var likeImage: UIImage {
         guard let like, !like else {
-            return UIImage(systemName: "heart")!
+            return UIImage.heart
         }
         
-        return UIImage(systemName: "heart.fill")!
+        return UIImage.heartFill
     }
     
 }

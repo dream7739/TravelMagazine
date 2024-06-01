@@ -1,5 +1,5 @@
 //
-//  CityInfoViewController.swift
+//  CityViewController.swift
 //  TravelMagazine
 //
 //  Created by 홍정민 on 5/29/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CityInfoViewController: UIViewController {
+class CityViewController: UIViewController {
     @IBOutlet var citySearchBar: UISearchBar!
     @IBOutlet var citySegment: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
@@ -24,7 +24,7 @@ class CityInfoViewController: UIViewController {
     }
 }
 
-extension CityInfoViewController {
+extension CityViewController {
     private func configureTableView(){
         
         filteredList = list
@@ -35,8 +35,8 @@ extension CityInfoViewController {
         cityTableView.separatorStyle = .none
         cityTableView.keyboardDismissMode = .onDrag
         
-        let nib = UINib(nibName: CityInfoTableViewCell.reuseIdentifier, bundle: nil)
-        cityTableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.reuseIdentifier)
+        let nib = UINib(nibName: CityTableViewCell.reuseIdentifier, bundle: nil)
+        cityTableView.register(nib, forCellReuseIdentifier: CityTableViewCell.reuseIdentifier)
     }
     
     private func configureSegment(){
@@ -70,19 +70,19 @@ extension CityInfoViewController {
     
 }
 
-extension CityInfoViewController : UITableViewDelegate, UITableViewDataSource {
+extension CityViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CityInfoTableViewCell.reuseIdentifier, for: indexPath) as! CityInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier, for: indexPath) as! CityTableViewCell
         cell.configureData(data: filteredList[indexPath.row])
         return cell
     }
 }
 
-extension CityInfoViewController : UISearchBarDelegate {
+extension CityViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let input = searchBar.text!

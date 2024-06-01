@@ -2,54 +2,97 @@
 //  TravelViewController.swift
 //  TravelMagazine
 //
-//  Created by 홍정민 on 5/25/24.
+//  Created by 홍정민 on 5/27/24.
 //
 
 import UIKit
 
-class TravelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TravelViewController: UIViewController {
     
     @IBOutlet var travelTableView: UITableView!
     
-    private let travelMegazine = MagazineInfo().magazine
+    private let travelList = TravelInfo().travel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView("SeSAC Travel")
+        
+        configureView("도시정보")
         configureTableView()
     }
     
+}
+
+extension TravelViewController {
     func configureTableView(){
         travelTableView.delegate = self
         travelTableView.dataSource = self
         
-        let nib = UINib(nibName: TravelMagazineTableViewCell.reuseIdentifier, bundle: nil)
-        travelTableView.register(nib, forCellReuseIdentifier: TravelMagazineTableViewCell.reuseIdentifier)
+        let cityNib = UINib(nibName: TravelTableViewCell.reuseIdentifier, bundle: nil)
+        travelTableView.register(cityNib, forCellReuseIdentifier: TravelTableViewCell.reuseIdentifier)
+        
+        let advertiseNib = UINib(nibName: AdvertiseTableViewCell.reuseIdentifier, bundle: nil)
+        travelTableView.register(advertiseNib, forCellReuseIdentifier: AdvertiseTableViewCell.reuseIdentifier)
+        
+        travelTableView.showsVerticalScrollIndicator = false
         
         travelTableView.rowHeight = UITableView.automaticDimension
-        travelTableView.separatorStyle = .none
     }
-    
-    //스크롤으로 인해서 셀이 화면에서 보이지 않게 되면 호출
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.reuseIdentifier, for: indexPath) as! TravelMagazineTableViewCell
+}
+
+extension TravelViewController : UITableViewDelegate, UITableViewDataSource{
+    //오른쪽에 swipe 액션 생성
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let share = UIContextualAction(style: .normal, title: "share") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            print("share 클릭")
+            success(true)
+        }
         
-        cell.travelImageView.cancelDownLoadImage()
+        share.image = UIImage(systemName: "square.and.arrow.up")
+        share.backgroundColor = .systemTeal
+        
+        return UISwipeActionsConfiguration(actions: [share])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return travelMegazine.count
+        return travelList.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.reuseIdentifier, for: indexPath) as! TravelMagazineTableViewCell
+        let data = travelList[indexPath.row]
         
-        cell.configureCell(data: travelMegazine[indexPath.row])
-    
-        cell.selectionStyle = .none
-        
-        return cell
+        if data.ad {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdvertiseTableViewCell.reuseIdentifier, for: indexPath) as! AdvertiseTableViewCell
+            cell.configureData(data: data)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: TravelTableViewCell.reuseIdentifier, for: indexPath) as! TravelTableViewCell
+            cell.configureData(data: data)
+            return cell
+        }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = travelList[indexPath.row]
+        
+        if data.ad {
+            let vc = storyboard?.instantiateViewController(withIdentifier: AdvertiseViewController.reuseIdentifier) as! AdvertiseViewController
+            vc.data = data
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            
+            present(nav, animated: true)
+            
+        }else{
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: TravelDetailViewController.reuseIdentifier) as! TravelDetailViewController
+            
+            vc.data = data
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
 }

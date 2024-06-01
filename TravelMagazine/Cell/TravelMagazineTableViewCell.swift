@@ -33,7 +33,12 @@ class TravelMagazineTableViewCell: UITableViewCell {
     }
     
     func configureCell(data: Magazine){
-        travelImageView.setImageFromURL(imageStr: data.photo_image)
+        
+        if let url = URL(string: data.photo_image) {
+            travelImageView.setImageFromURL(url)
+        }else{
+            travelImageView.image = UIImage.rupy
+        }
         
         titleLabel.text = data.title
         

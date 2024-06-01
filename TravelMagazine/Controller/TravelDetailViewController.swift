@@ -1,5 +1,5 @@
 //
-//  DetailCityViewController.swift
+//  TravelDetailViewController.swift
 //  TravelMagazine
 //
 //  Created by 홍정민 on 5/29/24.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class DetailCityViewController: UIViewController {
+class TravelDetailViewController: UIViewController {
 
-    @IBOutlet var cityImageView: UIImageView!
+    @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var gradeLabel: UILabel!
     @IBOutlet var saveLabel: UILabel!
     
     var data: Travel?
@@ -27,35 +27,35 @@ class DetailCityViewController: UIViewController {
 
 }
 
-extension DetailCityViewController {
+extension TravelDetailViewController {
     func configureData(data: Travel?){
         guard let data else { return }
         
-        if let image = data.travel_image {
-            cityImageView.setImageFromURL(imageStr: image)
+        if let image = data.travel_image, let url = URL(string: image) {
+            travelImageView.setImageFromURL(url)
         }else{
-            cityImageView.image = UIImage(named: "placeholder_rupy")
+            travelImageView.image = UIImage.rupy
         }
         
         nameLabel.text = data.title
         descriptionLabel.text = data.description
-        infoLabel.text = data.rateDescription
+        gradeLabel.text = data.rateDescription
         saveLabel.text = data.saveDescription
     }
     
     func configureLayout(){
-        cityImageView.contentMode = .scaleAspectFill
-        cityImageView.layer.cornerRadius = 10
+        travelImageView.contentMode = .scaleAspectFill
+        travelImageView.layer.cornerRadius = 10
         
-        nameLabel.font = .boldSystemFont(ofSize: 18)
+        nameLabel.font = .primary
         
-        descriptionLabel.font = .systemFont(ofSize: 13)
+        descriptionLabel.font = .tertiary
         descriptionLabel.numberOfLines = 0
         
-        infoLabel.font = .systemFont(ofSize: 13)
-        infoLabel.textColor = .lightGray
+        gradeLabel.font = .tertiary
+        gradeLabel.textColor = .lightGray
         
-        saveLabel.font = .systemFont(ofSize: 13)
+        saveLabel.font = .tertiary
         saveLabel.textColor = .lightGray
     }
 }

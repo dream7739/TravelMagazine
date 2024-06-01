@@ -24,13 +24,13 @@ class AdvertiseTableViewCell: UITableViewCell {
     }
     
     func configureLayout(){
-        titleLabel.font = .systemFont(ofSize: 14, weight: .heavy)
+        titleLabel.font = .teritary_heavy
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         
         adBackgroundView.layer.cornerRadius = 12
         
-        addIconLabel.font = .systemFont(ofSize: 11)
+        addIconLabel.font = .quanternary
         addIconLabel.backgroundColor = .white
         addIconLabel.layer.cornerRadius = 5
         addIconLabel.layer.masksToBounds = true

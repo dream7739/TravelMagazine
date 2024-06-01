@@ -26,15 +26,14 @@ class AdvertiseViewController: UIViewController {
         
         view.backgroundColor = data.randomColor
         
-        titleImageView.image = UIImage(named: "placeholder_rupy")
+        titleImageView.image = UIImage.rupy
         titleImageView.contentMode = .scaleAspectFill
         titleImageView.layer.cornerRadius = 10
         titleImageView.layer.borderWidth = 3
         
         titleLabel.text = data.title
+        titleLabel.font = .secondary
         titleLabel.numberOfLines = 0
-        
-    
         
     }
   

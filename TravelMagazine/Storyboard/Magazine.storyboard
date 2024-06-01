@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Travel View Controller-->
+        <!--Magazine View Controller-->
         <scene sceneID="JRh-fm-dkl">
             <objects>
-                <viewController id="HGY-Bg-Qu0" customClass="TravelViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HGY-Bg-Qu0" customClass="MagazineViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqE-xl-IE5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4w4-EK-GDk"/>
                     <connections>
-                        <outlet property="travelTableView" destination="3se-8s-6Wz" id="lvp-oE-jAN"/>
+                        <outlet property="magazineTableView" destination="3se-8s-6Wz" id="lvp-oE-jAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOz-Z0-xvG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

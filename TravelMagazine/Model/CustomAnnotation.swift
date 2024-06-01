@@ -55,7 +55,6 @@ class CustomAnnotationView : MKAnnotationView {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
         mainImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         mainImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 1).isActive = true
