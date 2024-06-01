@@ -10,6 +10,15 @@ import UIKit
 enum CustomTransitionStyle{
     case pop
     case dismiss
+    
+    var itemImage : UIImage {
+        switch self {
+        case .pop:
+            return UIImage(systemName: "chevron.backward")!
+        case .dismiss:
+            return UIImage(systemName: "xmark")!
+        }
+    }
 }
 
 extension UIViewController {
@@ -17,7 +26,7 @@ extension UIViewController {
         navigationItem.title = title
     }
     
-    func configureNavItem(_ image: String, style: CustomTransitionStyle){
+    func configureNavItem(style: CustomTransitionStyle){
         let action: Selector
         switch style{
         case .pop:
@@ -26,7 +35,7 @@ extension UIViewController {
             action = #selector(dismissButtonClicked)
         }
         
-        let item = UIBarButtonItem(image: UIImage(systemName: image), style: .plain, target: self, action: action)
+        let item = UIBarButtonItem(image: style.itemImage, style: .plain, target: self, action: action)
         navigationItem.leftBarButtonItem = item
         navigationItem.leftBarButtonItem?.tintColor = .black
     }

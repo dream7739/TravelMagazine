@@ -17,6 +17,7 @@ class TalkChatViewController: UIViewController {
         super.viewDidLoad()
         guard let chatData = list else { return }
         configureView(chatData.chatroomName)
+        configureNavItem(style: .pop)
         configureTableView()
     }
     

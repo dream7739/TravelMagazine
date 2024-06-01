@@ -17,7 +17,7 @@ class AdvertiseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView("광고 화면")
-        configureNavItem("xmark", style: .dismiss)
+        configureNavItem(style: .dismiss)
         configureData(data: data)
     }
     
