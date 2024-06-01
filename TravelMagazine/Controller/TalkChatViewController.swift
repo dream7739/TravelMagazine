@@ -31,8 +31,13 @@ extension TalkChatViewController {
         chatTableView.separatorStyle = .none
         
         //친구 메시지 cell 등록
-        let nib = UINib(nibName: FriendChatTableViewCell.reuseIdentifier, bundle: nil)
-        chatTableView.register(nib, forCellReuseIdentifier: FriendChatTableViewCell.reuseIdentifier)
+        let friendNib = UINib(nibName: FriendChatTableViewCell.reuseIdentifier, bundle: nil)
+        chatTableView.register(friendNib, forCellReuseIdentifier: FriendChatTableViewCell.reuseIdentifier)
+        
+        //내 메시지 cell 등록
+        let myNib = UINib(nibName: MyChatTableViewCell.reuseIdentifier, bundle: nil)
+        chatTableView.register(myNib, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)
+
     }
 
 }
@@ -43,13 +48,23 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FriendChatTableViewCell.reuseIdentifier, for: indexPath) as! FriendChatTableViewCell
-        
         let data = list!.chatList[indexPath.row]
-        
-        cell.configureData(data)
-        
-        return cell
+
+        if data.user == User.user {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as! MyChatTableViewCell
+            
+            cell.configureData(data)
+            
+            return cell
+            
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: FriendChatTableViewCell.reuseIdentifier, for: indexPath) as! FriendChatTableViewCell
+            
+            cell.configureData(data)
+            
+            return cell
+        }
+  
     }
     
     

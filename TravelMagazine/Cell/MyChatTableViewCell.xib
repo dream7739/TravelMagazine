@@ -16,8 +16,34 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="441" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bo4-bR-SjW" customClass="PaddingLabel" customModule="TravelMagazine" customModuleProvider="target">
+                        <rect key="frame" x="379" y="14.999999999999998" width="42" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6y-Bp-adc">
+                        <rect key="frame" x="329" y="14.333333333333336" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="u6y-Bp-adc" firstAttribute="bottom" secondItem="Bo4-bR-SjW" secondAttribute="bottom" id="3f8-e3-vC6"/>
+                    <constraint firstItem="Bo4-bR-SjW" firstAttribute="leading" secondItem="u6y-Bp-adc" secondAttribute="trailing" constant="8" id="GRI-nA-l85"/>
+                    <constraint firstItem="Bo4-bR-SjW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="UUv-7f-tLW"/>
+                    <constraint firstItem="u6y-Bp-adc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="d6n-oq-Uyq"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bo4-bR-SjW" secondAttribute="bottom" constant="15" id="l4k-RM-deU"/>
+                    <constraint firstAttribute="trailing" secondItem="Bo4-bR-SjW" secondAttribute="trailing" constant="20" id="qhd-5V-4Db"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentLabel" destination="Bo4-bR-SjW" id="lhO-Im-3aG"/>
+                <outlet property="dateLabel" destination="u6y-Bp-adc" id="QUi-5t-AUw"/>
+            </connections>
             <point key="canvasLocation" x="176" y="67"/>
         </tableViewCell>
     </objects>

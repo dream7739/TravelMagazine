@@ -8,17 +8,36 @@
 import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
-
-   
+    
+    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        configureLayout()
     }
     
+    
+    func configureData(_ data: Chat){
+        
+        contentLabel.text = data.message
+        
+        dateLabel.text = data.convertedDate(format: "aa hh:mm")
+    }
+    
+    func configureLayout(){
+        self.selectionStyle = .none
+        
+        contentLabel.numberOfLines = 0
+        contentLabel.layer.borderWidth = 1.0
+        contentLabel.layer.cornerRadius = 8
+        contentLabel.layer.borderColor = UIColor.lightGray.cgColor
+        contentLabel.clipsToBounds = true
+        contentLabel.font = .tertiary
+        contentLabel.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        
+        dateLabel.font = .quanternary
+        dateLabel.textColor = .lightGray
+        
+    }
 }
