@@ -8,7 +8,31 @@
 
 import UIKit
 
-struct Restaurant {    
+enum Category: Int, CaseIterable {
+    case korean = 0
+    case chinese = 1
+    case western = 2
+    case etc = 3
+    
+    var title: String {
+        switch self {
+        case .korean:
+            return "한식"
+        case .chinese:
+            return "중식"
+        case .western:
+            return "양식"
+        case .etc:
+            return "기타"
+        }
+    }
+    
+    var titleDescription: String {
+        return "# " + self.title
+    }
+}
+
+struct Restaurant {
     let image: String
     let latitude: Double
     let longitude: Double
@@ -27,7 +51,6 @@ struct Restaurant {
 }
 
 struct RestaurantList {
-    static let categoryArray = ["한식", "중식", "양식", "기타"]
     static let restaurantArray: [Restaurant] = [
         Restaurant(
             image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170712_44%2F1499829806371zeBdS_JPEG%2FIMG_1167.jpg",

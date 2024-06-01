@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class RestaurantViewController: UIViewController{
     
     @IBOutlet var mapButton: UIButton!
@@ -18,7 +17,6 @@ class RestaurantViewController: UIViewController{
     @IBOutlet var tagButtonCollection : [UIButton]!
     @IBOutlet var restaurantTableView: UITableView!
     
-    private let categoryList = RestaurantList.categoryArray
     private let restaurantList = RestaurantList.restaurantArray
     private var filteredList:[Restaurant] = []
     
@@ -39,10 +37,7 @@ class RestaurantViewController: UIViewController{
     }
     
     @IBAction func categoryButtonClicked(_ sender: UIButton) {
-        guard let title = sender.currentTitle else { return }
-        
-        let category = title.replacingOccurrences(of: "#", with: "").trimmingCharacters(in: .whitespaces)
-        
+        guard let category = Category(rawValue: sender.tag) else { return }
         filterCategory(category)
     }
     
@@ -87,7 +82,7 @@ extension RestaurantViewController {
     }
     
     @objc func mapButtonClicked(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: MapViewController.reuseIdentifier) as! MapViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -97,7 +92,8 @@ extension RestaurantViewController {
         sender.layer.borderColor = UIColor.systemIndigo.cgColor
         sender.tintColor = .systemIndigo
         
-        let buttonTitle = "# \(categoryList[idx])"
+        sender.tag = idx //tag로 enum의 rawValue와 연관시킴
+        let buttonTitle = Category(rawValue: idx)!.titleDescription
         sender.setTitle(buttonTitle, for: .normal)
     }
     
@@ -109,14 +105,17 @@ extension RestaurantViewController {
         restaurantTableView.reloadData()
     }
     
-    private func filterCategory(_ category: String){
-        if category == "기타"{
+    private func filterCategory(_ category: Category){
+        switch category {
+        case .korean, .chinese, .western:
             filteredList = restaurantList.filter{
-                !categoryList.contains($0.category)
+                $0.category == category.title
             }
-        }else{
-            filteredList = restaurantList.filter{
-                $0.category == category
+        case .etc:
+            filteredList = restaurantList.filter {
+                $0.category != Category.korean.title &&
+                $0.category != Category.chinese.title &&
+                $0.category != Category.western.title
             }
         }
         

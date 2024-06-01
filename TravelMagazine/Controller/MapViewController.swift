@@ -13,10 +13,8 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     private let list = RestaurantList.restaurantArray
-    private let categoryList = RestaurantList.categoryArray
     private var foodAnnotations: [MKAnnotation] = []
     private var filteredAnnotations: [MKAnnotation] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +31,6 @@ class MapViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .systemIndigo
         navigationItem.rightBarButtonItems = [filterItem, totalItem]
-        
-  
     }
     
     private func mapViewConfigure(){
@@ -68,9 +64,9 @@ class MapViewController: UIViewController {
     @objc func filterButtonClicked(){
         let foodActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        for category in categoryList {
-            let action = UIAlertAction(title: category, style: .default,
-                                       handler: { _ in self.filterCategoryFood(category) }
+        for category in Category.allCases {
+            let action = UIAlertAction(title: category.title, style: .default,
+                                       handler: { _ in self.filterCategory(category) }
             )
             
             foodActionSheet.addAction(action)
@@ -87,56 +83,62 @@ class MapViewController: UIViewController {
         mapView.addAnnotations(foodAnnotations)
     }
     
-    func filterCategoryFood(_ category: String){
-        if category == "기타" {
+    func filterCategory(_ category: Category){
+        
+        switch category {
+        case .korean, .chinese, .western:
             filteredAnnotations = foodAnnotations.filter{ item in
                 let convertItem = item as! CustomAnnotation
                 guard let convertCategory = convertItem.category else { return false }
+                
+                if convertCategory == category.title {
+                    return true
+                }else{
+                    return false
+                    
+                }
+            }
+        case .etc:
+            filteredAnnotations = foodAnnotations.filter{ item in
+                let convertItem = item as! CustomAnnotation
+                guard let convertCategory = convertItem.category else { return false }
+                
+                let categoryList = [Category.korean.title, Category.chinese.title, Category.western.title]
                 
                 if !categoryList.contains(convertCategory) {
                     return true
+                }else{
+                    return false
                 }
                 
-                return false
             }
-        }else if category == "전체"{
-            filteredAnnotations = foodAnnotations
-        }else {
-            filteredAnnotations = foodAnnotations.filter{ item in
-                let convertItem = item as! CustomAnnotation
-                guard let convertCategory = convertItem.category else { return false }
-                
-                if convertCategory == category{
-                    return true
-                }
-                
-                return false
-            }
+            
         }
         
         mapView.removeAnnotations(foodAnnotations)
         mapView.addAnnotations(filteredAnnotations)
-        
     }
-    
 }
 
 extension MapViewController : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+        
         guard let annotation = annotation as? CustomAnnotation else { return nil }
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.identifier) as? CustomAnnotationView
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
+            annotationView = CustomAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.identifier)
         }else{
-            if annotation.category == "한식" {
-                annotationView?.image = UIImage(systemName: "heart.fill")
+            if annotation.category == Category.korean.title {
+                let image = UIImage(systemName: "heart.fill")
+                annotationView!.mainImageView.image = image
             }else{
-                annotationView?.image = UIImage(named: "placeholder_rupy")
+                annotationView!.mainImageView.image = UIImage(named: "placeholder_rupy")
             }
             
-            annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            annotationView!.descriptionLabel.text = annotation.title
+            
         }
         
         return annotationView
