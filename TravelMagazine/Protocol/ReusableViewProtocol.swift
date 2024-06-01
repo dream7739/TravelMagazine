@@ -5,8 +5,20 @@
 //  Created by 홍정민 on 5/31/24.
 //
 
-import Foundation
+import UIKit
 
-protocol ReusableViewProtocol {
+protocol ReusdentifierProtocol {
     static var reuseIdentifier: String { get }
+}
+
+extension UIViewController : ReusdentifierProtocol {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UITableViewCell : ReusdentifierProtocol {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
 }

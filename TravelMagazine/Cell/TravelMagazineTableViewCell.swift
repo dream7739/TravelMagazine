@@ -48,8 +48,3 @@ class TravelMagazineTableViewCell: UITableViewCell {
     }
 }
 
-extension TravelMagazineTableViewCell : ReusableViewProtocol {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}

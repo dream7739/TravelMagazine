@@ -18,7 +18,6 @@ class PopularCityViewController: UIViewController {
         
         configureView("도시정보")
         configureTableView()
-        
     }
     
 }
@@ -28,11 +27,11 @@ extension PopularCityViewController {
         cityTableView.delegate = self
         cityTableView.dataSource = self
         
-        let cityNib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
-        cityTableView.register(cityNib, forCellReuseIdentifier: CityTableViewCell.identifier)
+        let cityNib = UINib(nibName: CityTableViewCell.reuseIdentifier, bundle: nil)
+        cityTableView.register(cityNib, forCellReuseIdentifier: CityTableViewCell.reuseIdentifier)
         
-        let advertiseNib = UINib(nibName: AdvertiseTableViewCell.identifier, bundle: nil)
-        cityTableView.register(advertiseNib, forCellReuseIdentifier: AdvertiseTableViewCell.identifier)
+        let advertiseNib = UINib(nibName: AdvertiseTableViewCell.reuseIdentifier, bundle: nil)
+        cityTableView.register(advertiseNib, forCellReuseIdentifier: AdvertiseTableViewCell.reuseIdentifier)
         
         cityTableView.showsVerticalScrollIndicator = false
         
@@ -62,11 +61,11 @@ extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource
         let data = cityList[indexPath.row]
         
         if data.ad {
-            let cell = tableView.dequeueReusableCell(withIdentifier: AdvertiseTableViewCell.identifier, for: indexPath) as! AdvertiseTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdvertiseTableViewCell.reuseIdentifier, for: indexPath) as! AdvertiseTableViewCell
             cell.configureData(data: data)
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as! CityTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier, for: indexPath) as! CityTableViewCell
             cell.configureData(data: data)
             return cell
         }
@@ -76,14 +75,15 @@ extension PopularCityViewController : UITableViewDelegate, UITableViewDataSource
         let data = cityList[indexPath.row]
         
         if data.ad {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "AdvertiseViewController") as! AdvertiseViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: AdvertiseViewController.reuseIdentifier) as! AdvertiseViewController
+            
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             nav.modalTransitionStyle = .crossDissolve
             vc.data = data
             present(nav, animated: true)
         }else{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCityViewController") as! DetailCityViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: AdvertiseViewController.reuseIdentifier) as! DetailCityViewController
             vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         }

@@ -35,8 +35,8 @@ extension CityInfoViewController {
         cityTableView.separatorStyle = .none
         cityTableView.keyboardDismissMode = .onDrag
         
-        let nib = UINib(nibName: CityInfoTableViewCell.identifier, bundle: nil)
-        cityTableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.identifier)
+        let nib = UINib(nibName: CityInfoTableViewCell.reuseIdentifier, bundle: nil)
+        cityTableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.reuseIdentifier)
     }
     
     private func configureSegment(){
@@ -76,7 +76,7 @@ extension CityInfoViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CityInfoTableViewCell.identifier, for: indexPath) as! CityInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CityInfoTableViewCell.reuseIdentifier, for: indexPath) as! CityInfoTableViewCell
         cell.configureData(data: filteredList[indexPath.row])
         return cell
     }

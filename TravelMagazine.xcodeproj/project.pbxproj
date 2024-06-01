@@ -101,6 +101,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8805D82A2C0ABA6D000B9B21 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				884F04AC2C01818B0046E60A /* Main.storyboard */,
+				884F04B12C01818C0046E60A /* LaunchScreen.storyboard */,
+				887702692C05D2090070BB98 /* TravelMagazine.storyboard */,
+				8877026B2C05D2170070BB98 /* TravelInfo.storyboard */,
+				888F7F0D2C0727F900463CD0 /* CityInfo.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		880A916F2C05B8AB00E78241 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +195,7 @@
 		884F04A52C01818B0046E60A /* TravelMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				8805D82A2C0ABA6D000B9B21 /* Storyboard */,
 				88197A902C08CC22004C73D2 /* Protocol */,
 				880A91702C05B8B800E78241 /* Controller */,
 				880A916F2C05B8AB00E78241 /* Cell */,
@@ -191,13 +204,8 @@
 				884F04A62C01818B0046E60A /* AppDelegate.swift */,
 				884F04A82C01818B0046E60A /* SceneDelegate.swift */,
 				884F04AA2C01818B0046E60A /* ViewController.swift */,
-				884F04AC2C01818B0046E60A /* Main.storyboard */,
 				884F04AF2C01818C0046E60A /* Assets.xcassets */,
-				884F04B12C01818C0046E60A /* LaunchScreen.storyboard */,
 				884F04B42C01818C0046E60A /* Info.plist */,
-				887702692C05D2090070BB98 /* TravelMagazine.storyboard */,
-				8877026B2C05D2170070BB98 /* TravelInfo.storyboard */,
-				888F7F0D2C0727F900463CD0 /* CityInfo.storyboard */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";

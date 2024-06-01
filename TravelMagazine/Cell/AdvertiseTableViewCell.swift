@@ -8,7 +8,6 @@
 import UIKit
 
 class AdvertiseTableViewCell: UITableViewCell {
-    static let identifier = "AdvertiseTableViewCell"
 
     @IBOutlet var adBackgroundView: UIView!
     @IBOutlet var titleLabel: UILabel!

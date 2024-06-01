@@ -31,6 +31,7 @@ class MapViewController: UIViewController {
         let filterItem = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterButtonClicked))
         let totalItem = UIBarButtonItem(title: "전체", style: .plain, target: self, action: #selector(totalButtonClicked))
         
+        navigationController?.navigationBar.tintColor = .systemIndigo
         navigationItem.rightBarButtonItems = [filterItem, totalItem]
         
   
