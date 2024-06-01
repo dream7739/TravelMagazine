@@ -13,11 +13,18 @@ class TalkListViewController: UIViewController {
     
     private let list = mockChatList
     
+    private var filteredList: [ChatRoom] = []{
+        didSet {
+            talkTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView("TRAVEL TALK")
         configureTableView()
         configureSearchView()
+        filteredList = list
     }
     
 }
@@ -28,6 +35,7 @@ extension TalkListViewController {
         talkTableView.dataSource = self
         talkTableView.rowHeight = 90
         talkTableView.showsVerticalScrollIndicator = false
+        talkTableView.keyboardDismissMode = .onDrag
         
         let nib = UINib(nibName: TalkListTableViewCell.reuseIdentifier, bundle: nil)
         talkTableView.register(nib, forCellReuseIdentifier: TalkListTableViewCell.reuseIdentifier)
@@ -41,32 +49,47 @@ extension TalkListViewController {
         searchVC.searchBar.tintColor = .black
         searchVC.searchResultsUpdater = self
         
-
         navigationItem.searchController = searchVC
         navigationItem.hidesSearchBarWhenScrolling = false
     }
-
+    
 }
 
 extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TalkListTableViewCell.reuseIdentifier, for: indexPath) as! TalkListTableViewCell
         
-        let talkData = list[indexPath.row]
+        let talkData = filteredList[indexPath.row]
         cell.configureData(talkData)
         
         return cell
     }
-    
-   
 }
 
 extension TalkListViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
+        
+        let inputText = searchController.searchBar.text!
+        
+        if !inputText.trimmingCharacters(in: .whitespaces).isEmpty {
+            
+            filteredList.removeAll()
+            
+            for listItem in list {
+                for chatImage in listItem.chatroomImage {
+                    if chatImage.localizedCaseInsensitiveContains(inputText) {
+                        filteredList.append(listItem)
+                    }
+                }
+            }
+        }else {
+            filteredList = list
+        }
     }
     
     

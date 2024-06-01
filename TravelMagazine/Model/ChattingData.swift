@@ -42,7 +42,7 @@ struct Chat {
     
     var convertedDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //HH는 24시간, hh는 12시간 기준
         guard let strToDate = dateFormatter.date(from: date) else {
             return "" }
         
