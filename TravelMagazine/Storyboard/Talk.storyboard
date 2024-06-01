@@ -39,6 +39,36 @@
             </objects>
             <point key="canvasLocation" x="132" y="-28"/>
         </scene>
+        <!--Talk Chat View Controller-->
+        <scene sceneID="2uo-Yq-Rry">
+            <objects>
+                <viewController storyboardIdentifier="TalkChatViewController" id="Mmo-tq-ATl" customClass="TalkChatViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ba-Sf-6pq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MVL-Qb-5aX">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BbJ-uN-3Bz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MVL-Qb-5aX" firstAttribute="top" secondItem="BbJ-uN-3Bz" secondAttribute="top" id="6aR-oT-LGd"/>
+                            <constraint firstItem="BbJ-uN-3Bz" firstAttribute="trailing" secondItem="MVL-Qb-5aX" secondAttribute="trailing" id="8QL-2k-LbW"/>
+                            <constraint firstItem="MVL-Qb-5aX" firstAttribute="leading" secondItem="BbJ-uN-3Bz" secondAttribute="leading" id="Zmw-x2-ZO9"/>
+                            <constraint firstItem="BbJ-uN-3Bz" firstAttribute="bottom" secondItem="MVL-Qb-5aX" secondAttribute="bottom" id="iaK-oM-vEh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chatTableView" destination="MVL-Qb-5aX" id="DSW-Je-DXy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLK-bA-oAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="-28"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

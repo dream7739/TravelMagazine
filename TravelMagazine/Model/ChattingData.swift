@@ -11,7 +11,7 @@ enum User: String {
     case jack = "Jack"
     case bran = "Bran"
     case den = "Den"
-    case user //본인
+    case user = "Jm"//본인
     case other_friend = "내옆자리의앞자리에개발잘하는친구"
     case simsim = "심심이"
     
@@ -40,14 +40,15 @@ struct Chat {
     let date: String
     let message: String
     
-    var convertedDate: String {
+    func convertedDate(format: String) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //HH는 24시간, hh는 12시간 기준
         guard let strToDate = dateFormatter.date(from: date) else {
             return "" }
         
         let dateStrFormatter = DateFormatter()
-        dateStrFormatter.dateFormat = "yy.MM.dd"
+        dateStrFormatter.dateFormat = format
+        dateStrFormatter.locale = Locale(identifier: "ko-kr")
         let dateToStr = dateStrFormatter.string(from: strToDate)
         return dateToStr
     }

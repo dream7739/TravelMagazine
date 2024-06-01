@@ -68,6 +68,15 @@ extension TalkListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatList = list[indexPath.row]
+        
+        let chatVC = storyboard?.instantiateViewController(withIdentifier: TalkChatViewController.reuseIdentifier) as! TalkChatViewController
+        chatVC.list = chatList
+        
+        navigationController?.pushViewController(chatVC, animated: true)
+    }
 }
 
 extension TalkListViewController: UISearchResultsUpdating {

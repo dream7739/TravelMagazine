@@ -11,6 +11,12 @@
 		880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91712C05BADD00E78241 /* UIViewController + Extension.swift */; };
 		880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */; };
 		880A91762C05C66900E78241 /* TravelMagazineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */; };
+		881758D92C0B594F00775E4D /* TalkChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758D82C0B594F00775E4D /* TalkChatViewController.swift */; };
+		881758DE2C0B5A1C00775E4D /* FriendChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758DC2C0B5A1C00775E4D /* FriendChatTableViewCell.swift */; };
+		881758DF2C0B5A1C00775E4D /* FriendChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881758DD2C0B5A1C00775E4D /* FriendChatTableViewCell.xib */; };
+		881758E42C0B5A6C00775E4D /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758E22C0B5A6C00775E4D /* MyChatTableViewCell.swift */; };
+		881758E52C0B5A6C00775E4D /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881758E32C0B5A6C00775E4D /* MyChatTableViewCell.xib */; };
+		881758E72C0B64AF00775E4D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758E62C0B64AF00775E4D /* PaddingLabel.swift */; };
 		88197A922C08CC44004C73D2 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */; };
 		88197A942C08CD33004C73D2 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A932C08CD33004C73D2 /* UIFont + Extension.swift */; };
 		8833D7112C07194400C6CFFA /* TravelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7102C07194400C6CFFA /* TravelDetailViewController.swift */; };
@@ -58,6 +64,12 @@
 		880A91712C05BADD00E78241 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		880A91732C05C66900E78241 /* TravelMagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMagazineTableViewCell.swift; sourceTree = "<group>"; };
 		880A91742C05C66900E78241 /* TravelMagazineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelMagazineTableViewCell.xib; sourceTree = "<group>"; };
+		881758D82C0B594F00775E4D /* TalkChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkChatViewController.swift; sourceTree = "<group>"; };
+		881758DC2C0B5A1C00775E4D /* FriendChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatTableViewCell.swift; sourceTree = "<group>"; };
+		881758DD2C0B5A1C00775E4D /* FriendChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendChatTableViewCell.xib; sourceTree = "<group>"; };
+		881758E22C0B5A6C00775E4D /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		881758E32C0B5A6C00775E4D /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		881758E62C0B64AF00775E4D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		88197A932C08CD33004C73D2 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		8833D7102C07194400C6CFFA /* TravelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +153,10 @@
 				888F7F122C0728E000463CD0 /* CityTableViewCell.xib */,
 				88F9B1E12C0B35B6007E2E21 /* TalkListTableViewCell.swift */,
 				88F9B1E22C0B35B6007E2E21 /* TalkListTableViewCell.xib */,
+				881758DC2C0B5A1C00775E4D /* FriendChatTableViewCell.swift */,
+				881758DD2C0B5A1C00775E4D /* FriendChatTableViewCell.xib */,
+				881758E22C0B5A6C00775E4D /* MyChatTableViewCell.swift */,
+				881758E32C0B5A6C00775E4D /* MyChatTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -156,8 +172,18 @@
 				888F7F0F2C07285E00463CD0 /* CityViewController.swift */,
 				8838BFD72C08675D005E2B8C /* MapViewController.swift */,
 				88F9B1E72C0B3AFE007E2E21 /* TalkListViewController.swift */,
+				881758D82C0B594F00775E4D /* TalkChatViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		881758E82C0B660400775E4D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				881758E62C0B64AF00775E4D /* PaddingLabel.swift */,
+				8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		88197A902C08CC22004C73D2 /* Protocol */ = {
@@ -189,7 +215,6 @@
 				883442DB2C047197007AE746 /* TravelModel.swift */,
 				886D188B2C020B250086CD19 /* Restaurant.swift */,
 				884F04BA2C0181C70046E60A /* MagazineInfo.swift */,
-				8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 		884F04A52C01818B0046E60A /* TravelMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				881758E82C0B660400775E4D /* Custom */,
 				8805D82A2C0ABA6D000B9B21 /* Storyboard */,
 				88197A902C08CC22004C73D2 /* Protocol */,
 				880A91702C05B8B800E78241 /* Controller */,
@@ -299,6 +325,8 @@
 				888F7F132C0728E000463CD0 /* CityTableViewCell.xib in Resources */,
 				883442E72C047277007AE746 /* AdvertiseTableViewCell.xib in Resources */,
 				88F9B1E42C0B35B6007E2E21 /* TalkListTableViewCell.xib in Resources */,
+				881758DF2C0B5A1C00775E4D /* FriendChatTableViewCell.xib in Resources */,
+				881758E52C0B5A6C00775E4D /* MyChatTableViewCell.xib in Resources */,
 				8884B0732C06087D002A6D61 /* RestaurantTableViewCell.xib in Resources */,
 				883442E12C047256007AE746 /* TravelTableViewCell.xib in Resources */,
 				884F04AE2C01818B0046E60A /* Base in Resources */,
@@ -323,6 +351,7 @@
 				884F04C62C018EC60046E60A /* UIImageView + Extension.swift in Sources */,
 				883442DC2C047197007AE746 /* TravelModel.swift in Sources */,
 				883442E22C047256007AE746 /* TravelTableViewCell.swift in Sources */,
+				881758D92C0B594F00775E4D /* TalkChatViewController.swift in Sources */,
 				883442EE2C0484AB007AE746 /* UIColor + Extension.swift in Sources */,
 				8838BFD82C08675D005E2B8C /* MapViewController.swift in Sources */,
 				884F04BB2C0181C70046E60A /* MagazineInfo.swift in Sources */,
@@ -333,13 +362,16 @@
 				888F7F162C0728FE00463CD0 /* CityInfo.swift in Sources */,
 				8805D82C2C0B267A000B9B21 /* UIImage + Extension.swift in Sources */,
 				88F9B1E02C0B342F007E2E21 /* ChattingData.swift in Sources */,
+				881758DE2C0B5A1C00775E4D /* FriendChatTableViewCell.swift in Sources */,
 				88197A922C08CC44004C73D2 /* ReusableViewProtocol.swift in Sources */,
 				880A91722C05BADD00E78241 /* UIViewController + Extension.swift in Sources */,
+				881758E42C0B5A6C00775E4D /* MyChatTableViewCell.swift in Sources */,
 				88197A942C08CD33004C73D2 /* UIFont + Extension.swift in Sources */,
 				884F04A92C01818B0046E60A /* SceneDelegate.swift in Sources */,
 				88F9B1E82C0B3AFE007E2E21 /* TalkListViewController.swift in Sources */,
 				8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */,
 				8884B0722C06087D002A6D61 /* RestaurantTableViewCell.swift in Sources */,
+				881758E72C0B64AF00775E4D /* PaddingLabel.swift in Sources */,
 				886D188C2C020B250086CD19 /* Restaurant.swift in Sources */,
 				88F9B1E32C0B35B6007E2E21 /* TalkListTableViewCell.swift in Sources */,
 				880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */,

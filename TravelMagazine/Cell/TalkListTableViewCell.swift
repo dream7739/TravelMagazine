@@ -57,7 +57,7 @@ class TalkListTableViewCell: UITableViewCell {
         
         if let latestChat = data.latestChat {
             contentLabel.text = latestChat.message
-            dateLabel.text = latestChat.convertedDate
+            dateLabel.text = latestChat.convertedDate(format: "yy.MM.dd")
         }
         
     }
