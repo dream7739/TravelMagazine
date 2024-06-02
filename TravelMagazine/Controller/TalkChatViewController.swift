@@ -8,10 +8,10 @@
 import UIKit
 
 class TalkChatViewController: UIViewController {
-
+    
     @IBOutlet var chatTableView: UITableView!
-    @IBOutlet var chatInputView: UIView!
-    @IBOutlet var inputBottomAnchor: NSLayoutConstraint!
+    @IBOutlet var chatTextView: UITextView!
+    @IBOutlet var textBottomAnchor: NSLayoutConstraint!
     var list : ChatRoom?
     
     override func viewDidLoad() {
@@ -25,9 +25,16 @@ class TalkChatViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         chatTableView.scrollToRow(at: IndexPath(row: list!.chatList.count-1, section: 0), at: .bottom, animated: false)
         
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object:  nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,  object: nil)
     }
     
     
@@ -47,20 +54,24 @@ extension TalkChatViewController {
         //내 메시지 cell 등록
         let myNib = UINib(nibName: MyChatTableViewCell.reuseIdentifier, bundle: nil)
         chatTableView.register(myNib, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)
-
+        
     }
-
+    
     func registerKeybordNotification(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print(keyboardSize.height - view.safeAreaInsets.bottom)
+            textBottomAnchor.constant = keyboardSize.height - view.safeAreaInsets.bottom
+        }
     }
     
     @objc func keybordWillHide(_ notification: Notification) {
-        
+        textBottomAnchor.constant = 0
     }
 }
 
@@ -71,7 +82,7 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = list!.chatList[indexPath.row]
-
+        
         if data.user == User.user {
             let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as! MyChatTableViewCell
             
@@ -86,7 +97,7 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-  
+        
     }
     
     
