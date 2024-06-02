@@ -10,7 +10,8 @@ import UIKit
 class TalkChatViewController: UIViewController {
 
     @IBOutlet var chatTableView: UITableView!
-    
+    @IBOutlet var chatInputView: UIView!
+    @IBOutlet var inputBottomAnchor: NSLayoutConstraint!
     var list : ChatRoom?
     
     override func viewDidLoad() {
@@ -19,7 +20,16 @@ class TalkChatViewController: UIViewController {
         configureView(chatData.chatroomName)
         configureNavItem(style: .pop)
         configureTableView()
+        registerKeybordNotification()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        chatTableView.scrollToRow(at: IndexPath(row: list!.chatList.count-1, section: 0), at: .bottom, animated: false)
+        
+    }
+    
     
 }
 
@@ -40,6 +50,18 @@ extension TalkChatViewController {
 
     }
 
+    func registerKeybordNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+    }
+    
+    @objc func keybordWillHide(_ notification: Notification) {
+        
+    }
 }
 
 extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {

@@ -33,7 +33,7 @@ class CustomAnnotationView : MKAnnotationView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 11)
+        label.font = .tertiary
         return label
     }()
     
@@ -67,7 +67,7 @@ class CustomAnnotationView : MKAnnotationView {
         
         canShowCallout = true
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(.heart, for: .normal)
         button.tintColor = .systemIndigo
         rightCalloutAccessoryView = button
         
