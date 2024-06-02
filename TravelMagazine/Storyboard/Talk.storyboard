@@ -48,17 +48,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JVg-W9-sHx">
-                                <rect key="frame" x="0.0" y="768" width="393" height="50"/>
+                                <rect key="frame" x="20" y="774" width="353" height="34"/>
                                 <color key="backgroundColor" red="0.51599985210582466" green="0.51599985210582466" blue="0.51599985210582466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Zpy-O6-cf3"/>
+                                    <constraint firstAttribute="height" constant="34" id="Zpy-O6-cf3"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MVL-Qb-5aX">
-                                <rect key="frame" x="0.0" y="59" width="393" height="709"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -66,10 +66,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MVL-Qb-5aX" firstAttribute="top" secondItem="BbJ-uN-3Bz" secondAttribute="top" id="4Pl-3Q-ML4"/>
-                            <constraint firstItem="BbJ-uN-3Bz" firstAttribute="bottom" secondItem="JVg-W9-sHx" secondAttribute="bottom" id="HD5-RF-t7t"/>
+                            <constraint firstItem="BbJ-uN-3Bz" firstAttribute="bottom" secondItem="JVg-W9-sHx" secondAttribute="bottom" constant="10" id="HD5-RF-t7t"/>
                             <constraint firstItem="JVg-W9-sHx" firstAttribute="top" secondItem="MVL-Qb-5aX" secondAttribute="bottom" id="a5T-Ru-V78"/>
-                            <constraint firstItem="JVg-W9-sHx" firstAttribute="leading" secondItem="BbJ-uN-3Bz" secondAttribute="leading" id="gTC-XA-9Qm"/>
-                            <constraint firstItem="JVg-W9-sHx" firstAttribute="trailing" secondItem="BbJ-uN-3Bz" secondAttribute="trailing" id="m5y-TI-7L9"/>
+                            <constraint firstItem="JVg-W9-sHx" firstAttribute="leading" secondItem="BbJ-uN-3Bz" secondAttribute="leading" constant="20" id="gTC-XA-9Qm"/>
+                            <constraint firstItem="JVg-W9-sHx" firstAttribute="trailing" secondItem="BbJ-uN-3Bz" secondAttribute="trailing" constant="-20" id="m5y-TI-7L9"/>
                             <constraint firstItem="MVL-Qb-5aX" firstAttribute="trailing" secondItem="BbJ-uN-3Bz" secondAttribute="trailing" id="rAE-JY-Ca9"/>
                             <constraint firstItem="MVL-Qb-5aX" firstAttribute="leading" secondItem="BbJ-uN-3Bz" secondAttribute="leading" id="zEM-6B-TD0"/>
                         </constraints>

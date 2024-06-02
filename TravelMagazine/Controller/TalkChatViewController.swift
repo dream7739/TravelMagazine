@@ -20,6 +20,7 @@ class TalkChatViewController: UIViewController {
         configureView(chatData.chatroomName)
         configureNavItem(style: .pop)
         configureTableView()
+        configureTextView()
         registerKeybordNotification()
     }
     
@@ -57,6 +58,15 @@ extension TalkChatViewController {
         
     }
     
+    func configureTextView(){
+        chatTextView.delegate = self
+        chatTextView.layer.cornerRadius = 10
+        chatTextView.clipsToBounds = true
+        chatTextView.tintColor = .darkGray
+        chatTextView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        chatTextView.font = .tertiary
+    }
+    
     func registerKeybordNotification(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -65,13 +75,12 @@ extension TalkChatViewController {
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            print(keyboardSize.height - view.safeAreaInsets.bottom)
-            textBottomAnchor.constant = keyboardSize.height - view.safeAreaInsets.bottom
+            textBottomAnchor.constant = (keyboardSize.height - view.safeAreaInsets.bottom) + 10
         }
     }
     
     @objc func keybordWillHide(_ notification: Notification) {
-        textBottomAnchor.constant = 0
+        textBottomAnchor.constant = 10
     }
 }
 
@@ -101,4 +110,27 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+extension TalkChatViewController : UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        // 1. text에 맞는 사이즈를 구하는 함수 sizeThatFits으로 scroll할 범위를 구하기
+        // 2. 오토레이아웃 수정을 통해 height값을 변경
+        // 3. 3줄 이상되면 늘어나지 않고 스크롤되게 제한함
+        if estimatedSize.height > 88 {
+            textView.isScrollEnabled = true
+            return
+        } else {
+            textView.isScrollEnabled = false
+            
+            textView.constraints.forEach { constraint in
+                if constraint.firstAttribute == .height{
+                    constraint.constant = estimatedSize.height
+                }
+            }
+        }
+    }
 }
