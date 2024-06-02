@@ -13,7 +13,7 @@ class FriendChatTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     
-    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var contentTextView: UITextView!
     
     @IBOutlet var dateLabel: UILabel!
     
@@ -28,7 +28,7 @@ class FriendChatTableViewCell: UITableViewCell {
         
         nameLabel.text = data.user.rawValue
         
-        contentLabel.text = data.message
+        contentTextView.text = data.message
         
         dateLabel.text = data.convertedDate(format: "aa hh:mm")
     }
@@ -39,17 +39,17 @@ class FriendChatTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = 20
         profileImageView.contentMode = .scaleAspectFill
         
-        
-        contentLabel.numberOfLines = 0
-        contentLabel.layer.borderWidth = 1.0
-        contentLabel.layer.cornerRadius = 8
-        contentLabel.layer.borderColor = UIColor.lightGray.cgColor
-        contentLabel.clipsToBounds = true
-        contentLabel.font = .tertiary
-        
+        contentTextView.layer.borderWidth = 1.0
+        contentTextView.layer.cornerRadius = 8
+        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        contentTextView.clipsToBounds = true
+        contentTextView.font = .tertiary
+        contentTextView.isEditable = false
+        contentTextView.isScrollEnabled = false
+
         dateLabel.font = .quanternary
         dateLabel.textColor = .lightGray
         
-        
     }
 }
+

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,34 +18,51 @@
                 <rect key="frame" x="0.0" y="0.0" width="441" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bo4-bR-SjW" customClass="PaddingLabel" customModule="TravelMagazine" customModuleProvider="target">
-                        <rect key="frame" x="379" y="14.999999999999998" width="42" height="20.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Tn-MP-k5c">
+                        <rect key="frame" x="124" y="15" width="297" height="123"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="nhy-dD-RnR"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6y-Bp-adc">
-                        <rect key="frame" x="329" y="14.333333333333336" width="42" height="21"/>
+                        <rect key="frame" x="50" y="117" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="7iQ-jp-sAA"/>
+                            <constraint firstAttribute="height" constant="21" id="qu7-m0-H08"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="u6y-Bp-adc" firstAttribute="bottom" secondItem="Bo4-bR-SjW" secondAttribute="bottom" id="3f8-e3-vC6"/>
-                    <constraint firstItem="Bo4-bR-SjW" firstAttribute="leading" secondItem="u6y-Bp-adc" secondAttribute="trailing" constant="8" id="GRI-nA-l85"/>
-                    <constraint firstItem="Bo4-bR-SjW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="UUv-7f-tLW"/>
-                    <constraint firstItem="u6y-Bp-adc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="d6n-oq-Uyq"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bo4-bR-SjW" secondAttribute="bottom" constant="15" id="l4k-RM-deU"/>
-                    <constraint firstAttribute="trailing" secondItem="Bo4-bR-SjW" secondAttribute="trailing" constant="20" id="qhd-5V-4Db"/>
+                    <constraint firstAttribute="trailing" secondItem="2Tn-MP-k5c" secondAttribute="trailing" constant="20" id="Ad1-O7-IQl"/>
+                    <constraint firstItem="u6y-Bp-adc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="FM7-Tl-7BD"/>
+                    <constraint firstAttribute="bottom" secondItem="2Tn-MP-k5c" secondAttribute="bottom" constant="10" id="JcU-vu-lvm"/>
+                    <constraint firstItem="2Tn-MP-k5c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="KrB-eL-ixl"/>
+                    <constraint firstItem="u6y-Bp-adc" firstAttribute="bottom" secondItem="2Tn-MP-k5c" secondAttribute="bottom" id="ZcA-8w-qvn"/>
+                    <constraint firstItem="2Tn-MP-k5c" firstAttribute="leading" secondItem="u6y-Bp-adc" secondAttribute="trailing" constant="4" id="gYQ-qy-bTP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="contentLabel" destination="Bo4-bR-SjW" id="lhO-Im-3aG"/>
+                <outlet property="contentTextView" destination="2Tn-MP-k5c" id="lLH-co-ZF6"/>
                 <outlet property="dateLabel" destination="u6y-Bp-adc" id="QUi-5t-AUw"/>
             </connections>
-            <point key="canvasLocation" x="176" y="67"/>
+            <point key="canvasLocation" x="174.80916030534351" y="66.901408450704224"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

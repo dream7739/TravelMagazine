@@ -9,8 +9,8 @@ import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
     
-    @IBOutlet var contentLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var contentTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,7 @@ class MyChatTableViewCell: UITableViewCell {
     
     func configureData(_ data: Chat){
         
-        contentLabel.text = data.message
+        contentTextView.text = data.message
         
         dateLabel.text = data.convertedDate(format: "aa hh:mm")
     }
@@ -28,16 +28,18 @@ class MyChatTableViewCell: UITableViewCell {
     func configureLayout(){
         self.selectionStyle = .none
         
-        contentLabel.numberOfLines = 0
-        contentLabel.layer.borderWidth = 1.0
-        contentLabel.layer.cornerRadius = 8
-        contentLabel.layer.borderColor = UIColor.lightGray.cgColor
-        contentLabel.clipsToBounds = true
-        contentLabel.font = .tertiary
-        contentLabel.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        contentTextView.layer.borderWidth = 1.0
+        contentTextView.layer.cornerRadius = 8
+        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        contentTextView.clipsToBounds = true
+        contentTextView.font = .tertiary
+        contentTextView.isEditable = false
+        contentTextView.isScrollEnabled = false
+        contentTextView.backgroundColor = .lightGray.withAlphaComponent(0.2)
         
         dateLabel.font = .quanternary
         dateLabel.textColor = .lightGray
+        dateLabel.textAlignment = .right
         
     }
 }

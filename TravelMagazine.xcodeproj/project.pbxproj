@@ -16,7 +16,6 @@
 		881758DF2C0B5A1C00775E4D /* FriendChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881758DD2C0B5A1C00775E4D /* FriendChatTableViewCell.xib */; };
 		881758E42C0B5A6C00775E4D /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758E22C0B5A6C00775E4D /* MyChatTableViewCell.swift */; };
 		881758E52C0B5A6C00775E4D /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881758E32C0B5A6C00775E4D /* MyChatTableViewCell.xib */; };
-		881758E72C0B64AF00775E4D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881758E62C0B64AF00775E4D /* PaddingLabel.swift */; };
 		88197A922C08CC44004C73D2 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */; };
 		88197A942C08CD33004C73D2 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88197A932C08CD33004C73D2 /* UIFont + Extension.swift */; };
 		8833D7112C07194400C6CFFA /* TravelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833D7102C07194400C6CFFA /* TravelDetailViewController.swift */; };
@@ -69,7 +68,6 @@
 		881758DD2C0B5A1C00775E4D /* FriendChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendChatTableViewCell.xib; sourceTree = "<group>"; };
 		881758E22C0B5A6C00775E4D /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		881758E32C0B5A6C00775E4D /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
-		881758E62C0B64AF00775E4D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		88197A912C08CC44004C73D2 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		88197A932C08CD33004C73D2 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		8833D7102C07194400C6CFFA /* TravelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		881758E82C0B660400775E4D /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				881758E62C0B64AF00775E4D /* PaddingLabel.swift */,
 				8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */,
 			);
 			path = Custom;
@@ -371,7 +368,6 @@
 				88F9B1E82C0B3AFE007E2E21 /* TalkListViewController.swift in Sources */,
 				8833D7132C07194D00C6CFFA /* AdvertiseViewController.swift in Sources */,
 				8884B0722C06087D002A6D61 /* RestaurantTableViewCell.swift in Sources */,
-				881758E72C0B64AF00775E4D /* PaddingLabel.swift in Sources */,
 				886D188C2C020B250086CD19 /* Restaurant.swift in Sources */,
 				88F9B1E32C0B35B6007E2E21 /* TalkListTableViewCell.swift in Sources */,
 				880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */,
