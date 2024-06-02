@@ -36,6 +36,8 @@ class FriendChatTableViewCell: UITableViewCell {
     func configureLayout(){
         self.selectionStyle = .none
 
+        nameLabel.font = .tertiary
+        
         profileImageView.layer.cornerRadius = 20
         profileImageView.contentMode = .scaleAspectFill
         
@@ -46,6 +48,7 @@ class FriendChatTableViewCell: UITableViewCell {
         contentTextView.font = .tertiary
         contentTextView.isEditable = false
         contentTextView.isScrollEnabled = false
+        contentTextView.textContainerInset = UIEdgeInsets(top: 8, left: 5, bottom: 8, right: 5)
 
         dateLabel.font = .quanternary
         dateLabel.textColor = .lightGray

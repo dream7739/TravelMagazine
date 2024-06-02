@@ -36,6 +36,7 @@ class MyChatTableViewCell: UITableViewCell {
         contentTextView.isEditable = false
         contentTextView.isScrollEnabled = false
         contentTextView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        contentTextView.textContainerInset = UIEdgeInsets(top: 8, left: 5, bottom: 8, right: 5)
         
         dateLabel.font = .quanternary
         dateLabel.textColor = .lightGray
