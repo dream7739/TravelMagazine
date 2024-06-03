@@ -17,4 +17,8 @@ extension UIColor{
 
     static let advertiseColorList = [advertiseColor1, advertiseColor2, advertiseColor3, advertiseColor4, advertiseColor5]
     
+    static func randomAdvertiseColor() -> UIColor {
+        return advertiseColorList.randomElement()!
+    }
+    
 }

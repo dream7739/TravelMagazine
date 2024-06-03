@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ReusdentifierProtocol {
+protocol ReusdentifierProtocol : AnyObject {
     static var reuseIdentifier: String { get }
 }
 

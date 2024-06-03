@@ -45,8 +45,7 @@ struct Restaurant {
     var like: Bool = false
     
     var likeImage: UIImage {
-        let image = like ? "heart.fill" : "heart"
-        return UIImage(systemName: image)!
+        return like ? UIImage.heartFill : UIImage.heart
     }
 }
 

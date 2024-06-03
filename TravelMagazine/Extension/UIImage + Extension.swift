@@ -19,4 +19,8 @@ extension UIImage {
     static var heart: UIImage {
         return UIImage(systemName: "heart")!
     }
+    
+    static var share: UIImage {
+        return UIImage(systemName: "square.and.arrow.up")!
+    }
 }

@@ -47,7 +47,7 @@ extension TravelViewController : UITableViewDelegate, UITableViewDataSource{
             success(true)
         }
         
-        share.image = UIImage(systemName: "square.and.arrow.up")
+        share.image = UIImage.share
         share.backgroundColor = .systemTeal
         
         return UISwipeActionsConfiguration(actions: [share])

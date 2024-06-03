@@ -14,7 +14,7 @@ struct Travel {
     var save: Int?
     var like: Bool?
     let ad: Bool
-    let randomColor = UIColor.advertiseColorList.randomElement()!
+    let randomColor = UIColor.randomAdvertiseColor()
     
     var rateDescription: String {
         if let grade {

@@ -41,6 +41,11 @@ extension CityViewController {
     
     private func configureSegment(){
         citySegment.addTarget(self, action: #selector(segmentClicked), for: .valueChanged)
+        let segmentCount = citySegment.numberOfSegments
+    
+        for i in 0..<segmentCount {
+            citySegment.setTitle(CityType(rawValue: i)?.typeName, forSegmentAt: i)
+        }
     }
     
     private func configureSearchBar(){
@@ -50,22 +55,13 @@ extension CityViewController {
     }
     
     @objc func segmentClicked(sender: UISegmentedControl){
-        filterDomesticCityList(sender.selectedSegmentIndex)
+        filterCityList(sender.selectedSegmentIndex)
         cityTableView.reloadData()
         cityTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
     
-    private func filterDomesticCityList(_ idx: Int){
-        switch idx {
-        case 0:
-            filteredList = list
-        case 1:
-            filteredList = list.filter{ $0.domestic_travel == true }
-        case 2:
-            filteredList = list.filter{ $0.domestic_travel == false }
-        default:
-            return
-        }
+    private func filterCityList(_ idx: Int){
+        filteredList = CityType(rawValue: idx)!.cityList
     }
     
 }

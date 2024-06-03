@@ -34,9 +34,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Loa-Ms-9Rh">
                                 <rect key="frame" x="20" y="123" width="353" height="32"/>
                                 <segments>
-                                    <segment title="모두"/>
-                                    <segment title="국내"/>
-                                    <segment title="해외"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
