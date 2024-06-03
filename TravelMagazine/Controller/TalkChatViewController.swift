@@ -13,6 +13,7 @@ class TalkChatViewController: UIViewController {
     @IBOutlet var chatTextView: UITextView!
     @IBOutlet var textBottomAnchor: NSLayoutConstraint!
     var list : ChatRoom?
+    var isFirstLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,17 @@ class TalkChatViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        chatTableView.scrollToRow(at: IndexPath(row: list!.chatList.count-1, section: 0), at: .bottom, animated: false)
-        
+        if isFirstLoad {
+            let section = list!.chatDateList.count - 1
+            let row = list!.chatList.filter{ String($0.date.split(separator: " ")[0]) == list!.chatDateList[section]}.count - 1
+            
+            DispatchQueue.main.async {
+                self.chatTableView.scrollToRow(at: IndexPath(row: row, section: section), at: .bottom, animated: false)
+
+            }
+            
+            isFirstLoad = false
+        }
     }
     
     
@@ -47,6 +56,7 @@ extension TalkChatViewController {
         chatTableView.delegate = self
         chatTableView.rowHeight = UITableView.automaticDimension
         chatTableView.separatorStyle = .none
+        chatTableView.sectionHeaderHeight = 100
         
         //친구 메시지 cell 등록
         let friendNib = UINib(nibName: FriendChatTableViewCell.reuseIdentifier, bundle: nil)
@@ -85,12 +95,16 @@ extension TalkChatViewController {
 }
 
 extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return list!.chatDateList.count 
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list!.chatList.count
+        return list!.chatList.filter{ String($0.date.split(separator: " ")[0]) == list!.chatDateList[section]}.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = list!.chatList[indexPath.row]
+        let data = list!.chatList.filter{ String($0.date.split(separator: " ")[0]) == list!.chatDateList[indexPath.section]}[indexPath.row]
         
         if data.user == User.user {
             let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as! MyChatTableViewCell
@@ -107,7 +121,32 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+        
     }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UITableViewHeaderFooterView()
+        let dateButton =  UIButton(type: .system)
+        headerView.addSubview(dateButton)
+        
+        dateButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        dateButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+        dateButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        dateButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        
+        let dateTitle = list!.getSectionDate(date: list!.chatDateList[section])
+        dateButton.setTitle(dateTitle, for: .normal)
+        dateButton.layer.cornerRadius = 8
+        dateButton.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        dateButton.clipsToBounds = true
+        dateButton.setTitleColor(.darkGray, for: .normal)
+
+        return headerView
+    }
+    
+    
     
     
 }
