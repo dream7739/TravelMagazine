@@ -17,29 +17,38 @@ class TalkChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
         guard let chatData = list else { return }
         configureView(chatData.chatroomName)
         configureNavItem(style: .pop)
         configureTableView()
         configureTextView()
         registerKeybordNotification()
+        
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if isFirstLoad {
-            let section = list!.chatDateList.count - 1
-            let row = list!.chatList.filter{ String($0.date.split(separator: " ")[0]) == list!.chatDateList[section]}.count - 1
-            
-            DispatchQueue.main.async {
-                self.chatTableView.scrollToRow(at: IndexPath(row: row, section: section), at: .bottom, animated: false)
-
-            }
-            
-            isFirstLoad = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print(#function)
+        let section = list!.chatDateList.count - 1
+        let row = list!.chatList.filter{ String($0.date.split(separator: " ")[0]) == list!.chatDateList[section]}.count - 1
+        
+        DispatchQueue.main.async {
+            print("scroll 처리")
+            self.chatTableView.scrollToRow(at: IndexPath(row: row, section: section), at: .bottom, animated: false)
         }
+        
     }
     
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        print(#function)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(#function)
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
@@ -96,7 +105,7 @@ extension TalkChatViewController {
 
 extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return list!.chatDateList.count 
+        return list!.chatDateList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,7 +130,6 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        
     }
     
     
@@ -142,7 +150,7 @@ extension TalkChatViewController: UITableViewDelegate, UITableViewDataSource {
         dateButton.backgroundColor = .lightGray.withAlphaComponent(0.2)
         dateButton.clipsToBounds = true
         dateButton.setTitleColor(.darkGray, for: .normal)
-
+        
         return headerView
     }
     
