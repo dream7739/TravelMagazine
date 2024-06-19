@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fH2-dV-umR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K3L-5Z-7qu">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
-        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -159,36 +158,6 @@
             </objects>
             <point key="canvasLocation" x="2003.8167938931297" y="895.77464788732402"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="EBq-w3-83q">
-            <objects>
-                <viewController storyboardIdentifier="MapViewController" id="LS4-KM-gYF" customClass="MapViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vSZ-HZ-AuM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hW1-iB-v68">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <standardMapConfiguration key="preferredConfiguration"/>
-                            </mapView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="sQe-eb-sPs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hW1-iB-v68" firstAttribute="leading" secondItem="sQe-eb-sPs" secondAttribute="leading" id="7VT-8u-XZX"/>
-                            <constraint firstItem="hW1-iB-v68" firstAttribute="bottom" secondItem="sQe-eb-sPs" secondAttribute="bottom" id="XTt-gd-eEB"/>
-                            <constraint firstItem="hW1-iB-v68" firstAttribute="trailing" secondItem="sQe-eb-sPs" secondAttribute="trailing" id="cy8-RV-dvC"/>
-                            <constraint firstItem="hW1-iB-v68" firstAttribute="top" secondItem="sQe-eb-sPs" secondAttribute="top" id="rbi-8f-Oy1"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="hW1-iB-v68" id="rrn-Nr-L6M"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vOv-wL-gfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2776.3358778625952" y="895.77464788732402"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="u1I-pl-ugK">
             <objects>
@@ -321,10 +290,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

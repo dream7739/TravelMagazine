@@ -33,7 +33,7 @@ class CustomAnnotationView : MKAnnotationView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .tertiary
+        label.font = .quanternary
         return label
     }()
     

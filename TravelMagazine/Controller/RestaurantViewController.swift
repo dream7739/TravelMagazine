@@ -82,7 +82,7 @@ extension RestaurantViewController {
     }
     
     @objc func mapButtonClicked(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: MapViewController.reuseIdentifier) as! MapViewController
+        let vc = MapViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

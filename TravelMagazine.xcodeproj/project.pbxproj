@@ -51,6 +51,7 @@
 		888F7F132C0728E000463CD0 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888F7F122C0728E000463CD0 /* CityTableViewCell.xib */; };
 		888F7F142C0728E000463CD0 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F7F112C0728E000463CD0 /* CityTableViewCell.swift */; };
 		888F7F162C0728FE00463CD0 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F7F152C0728FE00463CD0 /* CityInfo.swift */; };
+		88E07FC02C22E36F0048B9D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88E07FBF2C22E36F0048B9D6 /* SnapKit */; };
 		88F9B1E02C0B342F007E2E21 /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9B1DF2C0B342F007E2E21 /* ChattingData.swift */; };
 		88F9B1E32C0B35B6007E2E21 /* TalkListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9B1E12C0B35B6007E2E21 /* TalkListTableViewCell.swift */; };
 		88F9B1E42C0B35B6007E2E21 /* TalkListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F9B1E22C0B35B6007E2E21 /* TalkListTableViewCell.xib */; };
@@ -117,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				884F04C42C018E690046E60A /* Kingfisher in Frameworks */,
+				88E07FC02C22E36F0048B9D6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +271,7 @@
 			name = TravelMagazine;
 			packageProductDependencies = (
 				884F04C32C018E690046E60A /* Kingfisher */,
+				88E07FBF2C22E36F0048B9D6 /* SnapKit */,
 			);
 			productName = TravelMagazine;
 			productReference = 884F04A32C01818B0046E60A /* TravelMagazine.app */;
@@ -300,6 +303,7 @@
 			mainGroup = 884F049A2C01818B0046E60A;
 			packageReferences = (
 				884F04C22C018E690046E60A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				88E07FBE2C22E36F0048B9D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 884F04A42C01818B0046E60A /* Products */;
 			projectDirPath = "";
@@ -531,7 +535,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,7 +568,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -615,6 +619,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		88E07FBE2C22E36F0048B9D6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -622,6 +634,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 884F04C22C018E690046E60A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		88E07FBF2C22E36F0048B9D6 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88E07FBE2C22E36F0048B9D6 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
