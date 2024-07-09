@@ -12,8 +12,7 @@ class CityViewController: UIViewController {
     @IBOutlet var citySegment: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
     
-    private let list = CityInfo.city
-    private var filteredList: [City] = []
+    let viewModel = CityViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +20,26 @@ class CityViewController: UIViewController {
         configureTableView()
         configureSegment()
         configureSearchBar()
+        bindData()
+    }
+    
+    func bindData(){
+        viewModel.outputList.bind { value in
+            self.cityTableView.reloadData()
+            if !value.isEmpty{
+                self.cityTableView.scrollToRow(
+                    at: IndexPath(row: 0, section: 0),
+                    at: .top,
+                    animated: false
+                )
+            }
+        }
+        
     }
 }
 
 extension CityViewController {
     private func configureTableView(){
-        
-        filteredList = list
-        
         cityTableView.delegate = self
         cityTableView.dataSource = self
         cityTableView.rowHeight = 150
@@ -41,10 +52,9 @@ extension CityViewController {
     
     private func configureSegment(){
         citySegment.addTarget(self, action: #selector(segmentClicked), for: .valueChanged)
-        let segmentCount = citySegment.numberOfSegments
-    
-        for i in 0..<segmentCount {
-            citySegment.setTitle(CityType(rawValue: i)?.typeName, forSegmentAt: i)
+        
+        for idx in 0..<citySegment.numberOfSegments {
+            citySegment.setTitle(CityType.allCases[idx].typeName, forSegmentAt: idx)
         }
     }
     
@@ -55,65 +65,32 @@ extension CityViewController {
     }
     
     @objc func segmentClicked(sender: UISegmentedControl){
-        filterCityList(sender.selectedSegmentIndex)
-        cityTableView.reloadData()
-        cityTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        viewModel.segmentInput.value = sender.selectedSegmentIndex
     }
     
-    private func filterCityList(_ idx: Int){
-        filteredList = CityType(rawValue: idx)!.cityList
-    }
     
 }
 
 extension CityViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredList.count
+        return viewModel.outputList.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier, for: indexPath) as! CityTableViewCell
-        cell.configureData(data: filteredList[indexPath.row])
+        cell.configureData(data: viewModel.outputList.value[indexPath.row])
         return cell
     }
 }
 
 extension CityViewController : UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let input = searchBar.text!
-        
-        if !examineEmptyText(input) && input.koreanLangCheck() {
-            getFilteredCityList(input)
-        }else if examineEmptyText(input) && filteredList.count != list.count {
-            filteredList = list
-        }
-                
-        cityTableView.reloadData()
-
+        viewModel.searchInput.value = input
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let input = searchBar.text!
-        
-        if !examineEmptyText(input) && input.koreanLangCheck(){
-            getFilteredCityList(input)
-        }else if examineEmptyText(input) && filteredList.count != list.count {
-            filteredList = list
-        }
-        
-        cityTableView.reloadData()
-    }
-    
-    func examineEmptyText(_ input: String) -> Bool {
-        return input.trimmingCharacters(in: .whitespaces).isEmpty
-    }
-    
-    func getFilteredCityList(_ input: String){
-        filteredList = list.filter{ 
-            $0.city_name.localizedCaseInsensitiveContains(input) ||
-            $0.city_english_name.localizedCaseInsensitiveContains(input) ||
-            $0.city_explain.localizedCaseInsensitiveContains(input)
-        }
+        viewModel.searchInput.value = input
     }
 }
