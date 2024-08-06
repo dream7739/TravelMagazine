@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class CityViewController: UIViewController {
+final class CityViewController: UIViewController {
     @IBOutlet var citySearchBar: UISearchBar!
     @IBOutlet var citySegment: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
     
     let viewModel = CityViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +27,31 @@ class CityViewController: UIViewController {
     }
     
     func bindData(){
-        viewModel.outputList.bind { value in
-            self.cityTableView.reloadData()
-            if !value.isEmpty{
-                self.cityTableView.scrollToRow(
-                    at: IndexPath(row: 0, section: 0),
-                    at: .top,
-                    animated: false
-                )
-            }
-        }
+        let input = CityViewModel.Input(
+            segmentTap: citySegment.rx.selectedSegmentIndex,
+            searchText: citySearchBar.rx.text
+        )
         
+        let output = viewModel.transform(input: input)
+        
+        output.list
+            .bind(to: cityTableView.rx.items(cellIdentifier: CityTableViewCell.reuseIdentifier, cellType: CityTableViewCell.self)){ (row, element, cell) in
+                cell.configureData(data: element)
+            }
+            .disposed(by: disposeBag)
+        
+        output.segmentTap
+            .map { _ in output.list.value.count > 0 }
+            .bind(with: self) { owner, value in
+              print(value)
+                owner.cityTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 extension CityViewController {
     private func configureTableView(){
-        cityTableView.delegate = self
-        cityTableView.dataSource = self
         cityTableView.rowHeight = 150
         cityTableView.separatorStyle = .none
         cityTableView.keyboardDismissMode = .onDrag
@@ -51,46 +61,22 @@ extension CityViewController {
     }
     
     private func configureSegment(){
-        citySegment.addTarget(self, action: #selector(segmentClicked), for: .valueChanged)
+        let title = Observable.from(["전체", "국내", "해외"])
         
-        for idx in 0..<citySegment.numberOfSegments {
-            citySegment.setTitle(CityType.allCases[idx].typeName, forSegmentAt: idx)
-        }
+        title.enumerated()
+            .bind(with: self, onNext: { owner, value in
+                let titleText = Observable.just(value.element)
+                
+                titleText
+                    .bind(to: owner.citySegment.rx.titleForSegment(at: value.index))
+                    .disposed(by: owner.disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func configureSearchBar(){
-        citySearchBar.delegate = self
         citySearchBar.searchTextField.tintColor = .black
         citySearchBar.searchTextField.placeholder = "도시를 입력해주세요"
     }
     
-    @objc func segmentClicked(sender: UISegmentedControl){
-        viewModel.segmentInput.value = sender.selectedSegmentIndex
-    }
-    
-    
-}
-
-extension CityViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.outputList.value.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier, for: indexPath) as! CityTableViewCell
-        cell.configureData(data: viewModel.outputList.value[indexPath.row])
-        return cell
-    }
-}
-
-extension CityViewController : UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let input = searchBar.text!
-        viewModel.searchInput.value = input
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let input = searchBar.text!
-        viewModel.searchInput.value = input
-    }
 }

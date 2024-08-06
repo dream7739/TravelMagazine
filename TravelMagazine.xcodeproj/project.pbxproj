@@ -29,6 +29,8 @@
 		883442EE2C0484AB007AE746 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883442ED2C0484AB007AE746 /* UIColor + Extension.swift */; };
 		8838BFD82C08675D005E2B8C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838BFD72C08675D005E2B8C /* MapViewController.swift */; };
 		8838BFDA2C08729F005E2B8C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838BFD92C08729F005E2B8C /* CustomAnnotation.swift */; };
+		8848ADAA2C622E9500252F11 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8848ADA92C622E9500252F11 /* RxCocoa */; };
+		8848ADAC2C622E9500252F11 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8848ADAB2C622E9500252F11 /* RxSwift */; };
 		884F04A72C01818B0046E60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04A62C01818B0046E60A /* AppDelegate.swift */; };
 		884F04A92C01818B0046E60A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04A82C01818B0046E60A /* SceneDelegate.swift */; };
 		884F04AB2C01818B0046E60A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F04AA2C01818B0046E60A /* ViewController.swift */; };
@@ -52,7 +54,6 @@
 		888F7F142C0728E000463CD0 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F7F112C0728E000463CD0 /* CityTableViewCell.swift */; };
 		888F7F162C0728FE00463CD0 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F7F152C0728FE00463CD0 /* CityInfo.swift */; };
 		88AD962C2C3D1F6C001EC620 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD962B2C3D1F6C001EC620 /* CityViewModel.swift */; };
-		88AD962E2C3D1F74001EC620 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD962D2C3D1F74001EC620 /* Observable.swift */; };
 		88E07FC02C22E36F0048B9D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88E07FBF2C22E36F0048B9D6 /* SnapKit */; };
 		88F9B1E02C0B342F007E2E21 /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9B1DF2C0B342F007E2E21 /* ChattingData.swift */; };
 		88F9B1E32C0B35B6007E2E21 /* TalkListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F9B1E12C0B35B6007E2E21 /* TalkListTableViewCell.swift */; };
@@ -108,7 +109,6 @@
 		888F7F122C0728E000463CD0 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		888F7F152C0728FE00463CD0 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		88AD962B2C3D1F6C001EC620 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
-		88AD962D2C3D1F74001EC620 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		88F9B1DF2C0B342F007E2E21 /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
 		88F9B1E12C0B35B6007E2E21 /* TalkListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListTableViewCell.swift; sourceTree = "<group>"; };
 		88F9B1E22C0B35B6007E2E21 /* TalkListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkListTableViewCell.xib; sourceTree = "<group>"; };
@@ -121,7 +121,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848ADAA2C622E9500252F11 /* RxCocoa in Frameworks */,
 				884F04C42C018E690046E60A /* Kingfisher in Frameworks */,
+				8848ADAC2C622E9500252F11 /* RxSwift in Frameworks */,
 				88E07FC02C22E36F0048B9D6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +256,6 @@
 				884F04AA2C01818B0046E60A /* ViewController.swift */,
 				884F04AF2C01818C0046E60A /* Assets.xcassets */,
 				884F04B42C01818C0046E60A /* Info.plist */,
-				88AD962D2C3D1F74001EC620 /* Observable.swift */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -286,6 +287,8 @@
 			packageProductDependencies = (
 				884F04C32C018E690046E60A /* Kingfisher */,
 				88E07FBF2C22E36F0048B9D6 /* SnapKit */,
+				8848ADA92C622E9500252F11 /* RxCocoa */,
+				8848ADAB2C622E9500252F11 /* RxSwift */,
 			);
 			productName = TravelMagazine;
 			productReference = 884F04A32C01818B0046E60A /* TravelMagazine.app */;
@@ -318,6 +321,7 @@
 			packageReferences = (
 				884F04C22C018E690046E60A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				88E07FBE2C22E36F0048B9D6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				8848ADA82C622E9500252F11 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 884F04A42C01818B0046E60A /* Products */;
 			projectDirPath = "";
@@ -389,7 +393,6 @@
 				8884B0722C06087D002A6D61 /* RestaurantTableViewCell.swift in Sources */,
 				886D188C2C020B250086CD19 /* Restaurant.swift in Sources */,
 				88F9B1E32C0B35B6007E2E21 /* TalkListTableViewCell.swift in Sources */,
-				88AD962E2C3D1F74001EC620 /* Observable.swift in Sources */,
 				880A91752C05C66900E78241 /* TravelMagazineTableViewCell.swift in Sources */,
 				888F7F142C0728E000463CD0 /* CityTableViewCell.swift in Sources */,
 				8838BFDA2C08729F005E2B8C /* CustomAnnotation.swift in Sources */,
@@ -627,6 +630,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8848ADA82C622E9500252F11 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 		884F04C22C018E690046E60A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -646,6 +657,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8848ADA92C622E9500252F11 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8848ADA82C622E9500252F11 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		8848ADAB2C622E9500252F11 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8848ADA82C622E9500252F11 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		884F04C32C018E690046E60A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 884F04C22C018E690046E60A /* XCRemoteSwiftPackageReference "Kingfisher" */;

@@ -6,40 +6,63 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class CityViewModel{
+final class CityViewModel{
     
-    var segmentInput: Observable<Int> = Observable(1)
-    var searchInput: Observable<String> = Observable("")
-    var outputList: Observable<[City]> = Observable([])
+    let disposeBag = DisposeBag()
     
-    init(){
-        segmentInput.bind { value in
-            self.outputList.value = CityType.allCases[value].cityList
-        }
-        
-        searchInput.bind { value in
-            let keyword = value.trimmingCharacters(in: .whitespaces)
-            
-            if !keyword.isEmpty && value.koreanLangCheck() {
-                self.fetchFilterList(keyword)
-            }else if keyword.isEmpty{
-                self.fetchList()
-            }
-        }
+    struct Input {
+        let segmentTap: ControlProperty<Int>
+        let searchText: ControlProperty<String?>
     }
     
-    func fetchFilterList(_ input: String){
-        outputList.value = CityInfo.city.filter{
+    struct Output {
+        let segmentTap: ControlProperty<Int>
+        let list: BehaviorRelay<[City]>
+    }
+
+    func transform(input: Input) -> Output {
+        let list = BehaviorRelay(value: fetchList())
+        
+        input.segmentTap
+            .bind(with: self) { owner, value in
+                list.accept(CityType(rawValue: value)!.cityList)
+            }
+            .disposed(by: disposeBag)
+        
+        input.searchText
+            .orEmpty
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .bind(with: self) { owner, value in
+                if !value.isEmpty && value.koreanLangCheck() {
+                    list.accept(owner.fetchFilterList(value))
+                }else{
+                    list.accept(owner.fetchList())
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        return Output(
+            segmentTap: input.segmentTap,
+            list: list
+        )
+    }
+    
+}
+
+extension CityViewModel {
+    private func fetchFilterList(_ input: String) -> [City] {
+        return CityInfo.city.filter {
             $0.city_name.localizedCaseInsensitiveContains(input) ||
             $0.city_english_name.localizedCaseInsensitiveContains(input) ||
             $0.city_explain.localizedCaseInsensitiveContains(input)
         }
     }
     
-    func fetchList(){
-        outputList.value = CityInfo.city
+    private func fetchList() -> [City] {
+        return CityInfo.city
     }
 }
-
-

@@ -27,9 +27,6 @@
                                     <constraint firstAttribute="height" constant="44" id="SLR-yd-ji8"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="tJq-Wv-e5R"/>
-                                </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Loa-Ms-9Rh">
                                 <rect key="frame" x="20" y="123" width="353" height="32"/>
